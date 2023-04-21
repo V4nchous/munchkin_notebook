@@ -44,8 +44,8 @@ class MaxLevel extends StatelessWidget {
               heightScale: heightScale,
             ),
             SizedBox(height: 20 * heightScale),
-            _Discription(
-              widthSacle: widthScale,
+            _Description(
+              widthScale: widthScale,
               heightScale: heightScale,
             ),
             SizedBox(height: 72 * heightScale),
@@ -54,7 +54,7 @@ class MaxLevel extends StatelessWidget {
                 AutoRouter.of(context).navigate(const SelfCounting());
               },
               child: _Action1(
-                widthSacle: widthScale,
+                widthScale: widthScale,
                 heightScale: heightScale,
                 text: AppLocalizations.of(context)!.maxLvlAction1,
               ),
@@ -65,7 +65,7 @@ class MaxLevel extends StatelessWidget {
                 AutoRouter.of(context).navigate(const CreateGame());
               },
               child: _Action2(
-                widthSacle: widthScale,
+                widthScale: widthScale,
                 heightScale: heightScale,
                 text: AppLocalizations.of(context)!.maxLvlAction2,
               ),
@@ -177,30 +177,30 @@ class _Image extends StatelessWidget {
   }
 }
 
-class _Discription extends StatelessWidget {
-  const _Discription({
-    required this.widthSacle,
+class _Description extends StatelessWidget {
+  const _Description({
+    required this.widthScale,
     required this.heightScale,
   });
 
-  final double widthSacle;
+  final double widthScale;
   final double heightScale;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        maxWidth: 280 * widthSacle,
+        maxWidth: 280 * widthScale,
         minHeight: 209 * heightScale,
       ),
       child: Center(
         child: Text(
-          AppLocalizations.of(context)!.maxLvlDiscription,
+          AppLocalizations.of(context)!.maxLvlDescription,
           textAlign: TextAlign.left,
           style: TextStyle(
             color: AppColors.accentColor,
-            fontSize: 18 * widthSacle,
-            height: 0.9 * widthSacle,
+            fontSize: 18 * widthScale,
+            height: 0.9 * widthScale,
             fontWeight: FontWeight.w400,
             fontFamily: 'academy',
           ),
@@ -212,12 +212,12 @@ class _Discription extends StatelessWidget {
 
 class _Action1 extends StatelessWidget {
   const _Action1({
-    required this.widthSacle,
+    required this.widthScale,
     required this.heightScale,
     required this.text,
   });
 
-  final double widthSacle;
+  final double widthScale;
   final double heightScale;
   final String text;
 
@@ -225,12 +225,12 @@ class _Action1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        maxWidth: 108 * widthSacle,
+        maxWidth: 108 * widthScale,
         minHeight: 21 * heightScale,
       ),
       child: Center(
         child: PrimaryButton(
-          widthSacle: widthSacle,
+          widthScale: widthScale,
           heightScale: heightScale,
           text: text,
         ),
@@ -241,12 +241,12 @@ class _Action1 extends StatelessWidget {
 
 class _Action2 extends StatelessWidget {
   const _Action2({
-    required this.widthSacle,
+    required this.widthScale,
     required this.heightScale,
     required this.text,
   });
 
-  final double widthSacle;
+  final double widthScale;
   final double heightScale;
   final String text;
 
@@ -254,13 +254,13 @@ class _Action2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        minWidth: 219 * widthSacle,
+        minWidth: 219 * widthScale,
         minHeight: 19 * heightScale,
       ),
       child: Center(
         child: SecondaryButton(
           heightScale: heightScale,
-          widthScale: widthSacle,
+          widthScale: widthScale,
           text: text,
         ),
       ),

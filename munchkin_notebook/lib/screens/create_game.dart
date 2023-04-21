@@ -44,7 +44,7 @@ class CreateGame extends StatelessWidget {
                     heightScale: heightScale,
                     path: 'assets/images/munchkin_create_game.png'),
                 SizedBox(height: 20 * heightScale),
-                _Discription(
+                _Description(
                   widthScale: widthScale,
                   heightScale: heightScale,
                 ),
@@ -54,7 +54,7 @@ class CreateGame extends StatelessWidget {
                     AutoRouter.of(context).navigate(const MaxLevel());
                   },
                   child: _Action1(
-                    widthSacle: widthScale,
+                    widthScale: widthScale,
                     heightScale: heightScale,
                   ),
                 ),
@@ -64,7 +64,7 @@ class CreateGame extends StatelessWidget {
                     AutoRouter.of(context).navigate(const JoinGame());
                   },
                   child: _Action2(
-                    widthSacle: widthScale,
+                    widthScale: widthScale,
                     heightScale: heightScale,
                   ),
                 ),
@@ -136,8 +136,8 @@ class _Image extends StatelessWidget {
   }
 }
 
-class _Discription extends StatelessWidget {
-  const _Discription({
+class _Description extends StatelessWidget {
+  const _Description({
     required this.widthScale,
     required this.heightScale,
   });
@@ -154,7 +154,7 @@ class _Discription extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          AppLocalizations.of(context)!.createGameDiscription,
+          AppLocalizations.of(context)!.createGameDescription,
           textAlign: TextAlign.left,
           style: TextStyle(
             color: AppColors.accentColor,
@@ -171,18 +171,18 @@ class _Discription extends StatelessWidget {
 
 class _Action1 extends StatelessWidget {
   const _Action1({
-    required this.widthSacle,
+    required this.widthScale,
     required this.heightScale,
   });
 
-  final double widthSacle;
+  final double widthScale;
   final double heightScale;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        maxWidth: 114 * widthSacle,
+        maxWidth: 114 * widthScale,
         minHeight: 21 * heightScale,
       ),
       child: Center(
@@ -190,7 +190,7 @@ class _Action1 extends StatelessWidget {
           AppLocalizations.of(context)!.createGameAction1,
           style: TextStyle(
             color: AppColors.accentColor,
-            fontSize: 20 * widthSacle,
+            fontSize: 20 * widthScale,
             fontWeight: FontWeight.w700,
             fontFamily: 'academy',
           ),
@@ -202,18 +202,18 @@ class _Action1 extends StatelessWidget {
 
 class _Action2 extends StatelessWidget {
   const _Action2({
-    required this.widthSacle,
+    required this.widthScale,
     required this.heightScale,
   });
 
-  final double widthSacle;
+  final double widthScale;
   final double heightScale;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        maxWidth: 138 * widthSacle,
+        maxWidth: 138 * widthScale,
         minHeight: 19 * heightScale,
       ),
       child: Center(
@@ -221,7 +221,7 @@ class _Action2 extends StatelessWidget {
           AppLocalizations.of(context)!.createGameAction2,
           style: TextStyle(
             color: AppColors.accentColor,
-            fontSize: 18 * widthSacle,
+            fontSize: 18 * widthScale,
             fontWeight: FontWeight.w400,
             fontFamily: 'academy',
           ),
