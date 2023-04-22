@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
+import 'package:munchkin_notebook/screens/basic_widgets/screen_scale.dart';
 
 class MyBackGround extends StatelessWidget {
   const MyBackGround({
@@ -10,6 +11,7 @@ class MyBackGround extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenScale = getScreenScale(context);
     return Container(
       color: AppColors.accentColor,
       width: double.infinity,
@@ -17,7 +19,7 @@ class MyBackGround extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(
-            width: MediaQuery.of(context).size.width * 0.02,
+            width: 10,
             color: AppColors.accentColor,
           ),
           color: AppColors.primaryColor,

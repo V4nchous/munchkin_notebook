@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
+import 'package:munchkin_notebook/screens/basic_widgets/screen_scale.dart';
 
 class MyTitle extends StatelessWidget {
   const MyTitle({
@@ -11,12 +12,14 @@ class MyTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenScale = getScreenScale(context);
+
     return Text(
       text,
       textAlign: TextAlign.center,
-      style: const TextStyle(
+      style: TextStyle(
         color: AppColors.accentColor,
-        fontSize: 32,
+        fontSize: 32 * screenScale,
         height: 1.1,
         fontWeight: FontWeight.w700,
         fontFamily: 'munchkin',
