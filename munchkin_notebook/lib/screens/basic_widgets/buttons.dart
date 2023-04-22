@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class MyPrimaryButton extends StatelessWidget {
+  const MyPrimaryButton({
     super.key,
-    required this.widthScale,
-    required this.heightScale,
     required this.text,
   });
-
-  final double widthScale;
-  final double heightScale;
 
   final String text;
 
@@ -19,9 +14,10 @@ class PrimaryButton extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.center,
-      style: TextStyle(
+      style: const TextStyle(
         color: AppColors.accentColor,
-        fontSize: 20 * widthScale,
+        fontSize: 20,
+        height: 0.95,
         fontWeight: FontWeight.w700,
         fontFamily: 'academy',
       ),
@@ -29,16 +25,12 @@ class PrimaryButton extends StatelessWidget {
   }
 }
 
-class SecondaryButton extends StatelessWidget {
-  const SecondaryButton({
+class MySecondaryButton extends StatelessWidget {
+  const MySecondaryButton({
     super.key,
-    required this.widthScale,
-    required this.heightScale,
     required this.text,
   });
 
-  final double widthScale;
-  final double heightScale;
   final String text;
 
   @override
@@ -46,9 +38,9 @@ class SecondaryButton extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.center,
-      style: TextStyle(
+      style: const TextStyle(
         color: AppColors.accentColor,
-        fontSize: 18 * widthScale,
+        fontSize: 18,
         fontWeight: FontWeight.w400,
         fontFamily: 'academy',
       ),
