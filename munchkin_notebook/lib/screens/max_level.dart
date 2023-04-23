@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/screens/basic_widgets/background.dart';
 import 'package:munchkin_notebook/screens/basic_widgets/buttons.dart';
 import 'package:munchkin_notebook/screens/basic_widgets/description.dart';
+import 'package:munchkin_notebook/screens/basic_widgets/lvl_selection_group.dart';
 import 'package:munchkin_notebook/screens/basic_widgets/title.dart';
 
 @RoutePage()
@@ -26,7 +26,7 @@ class MaxLevel extends StatelessWidget {
               text: AppLocalizations.of(context)!.maxLvlTitle,
             ),
             const Padding(padding: EdgeInsets.only(top: 20)),
-            _LvlSelectionGroup(),
+            LvlSelectionGroup(),
             const Padding(padding: EdgeInsets.only(top: 20)),
             Expanded(
               child: MyDescription(
@@ -54,42 +54,6 @@ class MaxLevel extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class _LvlSelectionGroup extends StatelessWidget {
-  _LvlSelectionGroup();
-
-  int lvlSelection = 10;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SizedBox(
-          height: 30,
-          child: Image.asset('assets/images/arrow_left_max_lvl.png'),
-        ),
-        const Padding(padding: EdgeInsets.only(right: 20)),
-        Text(
-          lvlSelection.toString(),
-          style: const TextStyle(
-            color: AppColors.accentColor,
-            fontSize: 48,
-            fontWeight: FontWeight.w700,
-            fontFamily: 'academy',
-          ),
-        ),
-        const Padding(padding: EdgeInsets.only(right: 20)),
-        SizedBox(
-          height: 30,
-          child: Image.asset('assets/images/arrow_right_max_lvl.png'),
-        ),
-      ],
     );
   }
 }

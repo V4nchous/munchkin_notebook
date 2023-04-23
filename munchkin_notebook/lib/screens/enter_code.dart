@@ -8,6 +8,7 @@ import 'package:munchkin_notebook/navigation/router.gr.dart';
 import 'package:munchkin_notebook/screens/basic_widgets/background.dart';
 import 'package:munchkin_notebook/screens/basic_widgets/buttons.dart';
 import 'package:munchkin_notebook/screens/basic_widgets/description.dart';
+import 'package:munchkin_notebook/screens/basic_widgets/enter_code_group.dart';
 import 'package:munchkin_notebook/screens/basic_widgets/title.dart';
 
 @RoutePage()
@@ -26,7 +27,7 @@ class EnterCode extends StatelessWidget {
               text: AppLocalizations.of(context)!.enterCodeTitle,
             ),
             const Padding(padding: EdgeInsets.only(top: 40)),
-            _EnterCodeGroup(),
+            EnterCodeGroup(),
             const Padding(padding: EdgeInsets.only(top: 20)),
             Expanded(
               child: MyDescription(
@@ -49,61 +50,6 @@ class EnterCode extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class _EnterCodeGroup extends StatelessWidget {
-  _EnterCodeGroup();
-
-  List<int> values = [0, 7, 8, 2, 3];
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _EnterCodeGroupUnit(value: values[0]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
-        _EnterCodeGroupUnit(value: values[1]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
-        _EnterCodeGroupUnit(value: values[2]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
-        _EnterCodeGroupUnit(value: values[3]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
-        _EnterCodeGroupUnit(value: values[4]),
-      ],
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class _EnterCodeGroupUnit extends StatelessWidget {
-  _EnterCodeGroupUnit({required this.value});
-
-  int? value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          value.toString(),
-          style: const TextStyle(
-            color: AppColors.accentColor,
-            fontSize: 48,
-            fontWeight: FontWeight.w700,
-            fontFamily: 'academy',
-          ),
-        ),
-        Container(
-          width: 40,
-          height: 4,
-          color: AppColors.accentColor,
-        ),
-      ],
     );
   }
 }
