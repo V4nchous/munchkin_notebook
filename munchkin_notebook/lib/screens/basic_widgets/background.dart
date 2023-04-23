@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
-import 'package:munchkin_notebook/screens/basic_widgets/screen_scale.dart';
+import 'package:munchkin_notebook/screens/basic_widgets/features/screen_scale.dart';
 
 class MyBackGround extends StatelessWidget {
   const MyBackGround({

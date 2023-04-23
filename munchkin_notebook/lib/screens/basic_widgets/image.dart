@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:munchkin_notebook/screens/basic_widgets/screen_scale.dart';
+import 'package:munchkin_notebook/screens/basic_widgets/features/screen_scale.dart';
 
 class MyImage extends StatelessWidget {
   const MyImage({
