@@ -8,18 +8,18 @@ class MyBasePage extends StatelessWidget {
     required this.body,
     required this.actions,
   });
-  final Widget? title;
-  final Widget? body;
-  final Widget? actions;
+  final Widget title;
+  final Widget body;
+  final Widget actions;
 
   @override
   Widget build(BuildContext context) {
     return MyBackGround(
       child: Column(
         children: [
-          title!,
-          body!,
-          actions!,
+          title,
+          body,
+          actions,
           const Padding(padding: EdgeInsets.only(bottom: 38)),
         ],
       ),
