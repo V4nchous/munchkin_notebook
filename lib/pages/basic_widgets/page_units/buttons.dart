@@ -15,7 +15,6 @@ class MyPrimaryButton extends StatelessWidget {
     double screenScale = getScreenScale(context);
     return Column(
       children: [
-        const Padding(padding: EdgeInsets.only(top: 20)),
         Text(
           text,
           textAlign: TextAlign.center,
@@ -45,7 +44,6 @@ class MySecondaryButton extends StatelessWidget {
     double screenScale = getScreenScale(context);
     return Column(
       children: [
-        const Padding(padding: EdgeInsets.only(top: 20)),
         Text(
           text,
           textAlign: TextAlign.center,

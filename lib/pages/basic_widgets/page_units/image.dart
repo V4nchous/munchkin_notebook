@@ -12,12 +12,10 @@ class MyImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
-    return SizedBox(
+    return Image.asset(
+      path,
+      fit: BoxFit.cover,
       height: 160 * screenScale,
-      child: Image.asset(
-        path,
-        fit: BoxFit.cover,
-      ),
     );
   }
 }

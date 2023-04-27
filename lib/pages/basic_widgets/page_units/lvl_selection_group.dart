@@ -20,7 +20,7 @@ class LvlSelectionGroup extends StatelessWidget {
           height: 30 * screenScale,
           child: Image.asset('assets/images/arrow_left_max_lvl.png'),
         ),
-        const Padding(padding: EdgeInsets.only(right: 20)),
+        const SizedBox(width: 20),
         Text(
           lvlSelection.toString(),
           style: TextStyle(
@@ -30,7 +30,7 @@ class LvlSelectionGroup extends StatelessWidget {
             fontFamily: 'academy',
           ),
         ),
-        const Padding(padding: EdgeInsets.only(right: 20)),
+        const SizedBox(width: 20),
         SizedBox(
           height: 30 * screenScale,
           child: Image.asset('assets/images/arrow_right_max_lvl.png'),

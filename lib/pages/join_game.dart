@@ -4,8 +4,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/pages/basic_widgets/base_page.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/body.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/buttons.dart';
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/description.dart';
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/image.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
@@ -18,9 +19,17 @@ class JoinGame extends StatelessWidget {
       body: MyBasePage(
         title: MyTitle(text: AppLocalizations.of(context)!.joinGameTitle),
         body: Expanded(
-          child: MyBody(
-              path: AppLocalizations.of(context)!.joinGameImagePath,
-              text: AppLocalizations.of(context)!.joinGameDescription),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              MyImage(path: AppLocalizations.of(context)!.joinGameImagePath),
+              const SizedBox(height: 20),
+              Expanded(
+                child: MyDescription(
+                    text: AppLocalizations.of(context)!.joinGameDescription),
+              ),
+            ],
+          ),
         ),
         actions: Column(
           children: [
@@ -31,6 +40,7 @@ class JoinGame extends StatelessWidget {
               child: MyPrimaryButton(
                   text: AppLocalizations.of(context)!.joinGameAction1),
             ),
+            const SizedBox(height: 20),
             InkWell(
               onTap: () {
                 AutoRouter.of(context).navigate(const CreateGame());

@@ -12,9 +12,7 @@ class MyBackGround extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.accentColor,
-      width: double.infinity,
       child: Container(
-        width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(
             width: 10,

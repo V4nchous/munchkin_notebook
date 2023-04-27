@@ -17,10 +17,12 @@ class MyBasePage extends StatelessWidget {
     return MyBackGround(
       child: Column(
         children: [
+          const SizedBox(height: 40),
           title,
+          const SizedBox(height: 20),
           body,
           actions,
-          const Padding(padding: EdgeInsets.only(bottom: 38)),
+          const SizedBox(height: 38),
         ],
       ),
     );

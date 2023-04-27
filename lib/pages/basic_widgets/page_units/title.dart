@@ -14,21 +14,16 @@ class MyTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
 
-    return Column(
-      children: [
-        const Padding(padding: EdgeInsets.only(top: 40)),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: AppColors.accentColor,
-            fontSize: 32 * screenScale,
-            height: 1.1,
-            fontWeight: FontWeight.w700,
-            fontFamily: 'munchkin',
-          ),
-        ),
-      ],
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: AppColors.accentColor,
+        fontSize: 32 * screenScale,
+        height: 1.1,
+        fontWeight: FontWeight.w700,
+        fontFamily: 'munchkin',
+      ),
     );
   }
 }

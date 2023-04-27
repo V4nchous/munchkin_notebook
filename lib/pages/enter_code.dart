@@ -4,8 +4,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/pages/basic_widgets/base_page.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/body.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/buttons.dart';
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/description.dart';
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/enter_code_group.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
@@ -18,14 +19,23 @@ class EnterCode extends StatelessWidget {
       body: MyBasePage(
         title: MyTitle(text: AppLocalizations.of(context)!.enterCodeTitle),
         body: Expanded(
-          child: MyBody(
-              codeValues: const [0, 1, 2, 3, 4],
-              text: AppLocalizations.of(context)!.enterCodeDescription),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              EnterCodeGroup(),
+              const SizedBox(height: 20),
+              Expanded(
+                child: MyDescription(
+                    text: AppLocalizations.of(context)!.enterCodeDescription),
+              ),
+            ],
+          ),
         ),
         actions: Column(
           children: [
             MyPrimaryButton(
                 text: AppLocalizations.of(context)!.enterCodeAction1),
+            const SizedBox(height: 20),
             InkWell(
               onTap: () {
                 AutoRouter.of(context).navigate(const CreateGame());

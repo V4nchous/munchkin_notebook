@@ -4,8 +4,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/pages/basic_widgets/base_page.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/body.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/buttons.dart';
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/description.dart';
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/lvl_selection_group.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
@@ -18,17 +19,28 @@ class MaxLevel extends StatelessWidget {
       body: MyBasePage(
         title: MyTitle(text: AppLocalizations.of(context)!.maxLvlTitle),
         body: Expanded(
-          child: MyBody(
-              lvl: 10, text: AppLocalizations.of(context)!.maxLvlDescription),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              LvlSelectionGroup(),
+              const SizedBox(height: 20),
+              Expanded(
+                child: MyDescription(
+                    text: AppLocalizations.of(context)!.maxLvlDescription),
+              ),
+            ],
+          ),
         ),
         actions: Column(
           children: [
             InkWell(
-                onTap: () {
-                  AutoRouter.of(context).navigate(const SelfCounting());
-                },
-                child: MyPrimaryButton(
-                    text: AppLocalizations.of(context)!.maxLvlAction1)),
+              onTap: () {
+                AutoRouter.of(context).navigate(const SelfCounting());
+              },
+              child: MyPrimaryButton(
+                  text: AppLocalizations.of(context)!.maxLvlAction1),
+            ),
+            const SizedBox(height: 20),
             InkWell(
                 onTap: () {
                   AutoRouter.of(context).navigate(const CreateGame());

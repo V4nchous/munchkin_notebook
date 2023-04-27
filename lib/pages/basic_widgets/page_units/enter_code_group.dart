@@ -15,13 +15,13 @@ class EnterCodeGroup extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _EnterCodeGroupUnit(value: values[0]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
+        const SizedBox(width: 10),
         _EnterCodeGroupUnit(value: values[1]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
+        const SizedBox(width: 10),
         _EnterCodeGroupUnit(value: values[2]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
+        const SizedBox(width: 10),
         _EnterCodeGroupUnit(value: values[3]),
-        const Padding(padding: EdgeInsets.only(right: 10)),
+        const SizedBox(width: 10),
         _EnterCodeGroupUnit(value: values[4]),
       ],
     );
