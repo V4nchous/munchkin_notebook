@@ -11,7 +11,10 @@ import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
 class MaxLevel extends StatelessWidget {
-  const MaxLevel({super.key});
+  MaxLevel({super.key});
+
+  final MaxLevelController _maxLevelController =
+      MaxLevelController(initialValue: 7);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,9 @@ class MaxLevel extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              LvlSelectionGroup(),
+              LvlSelectionGroup(
+                controller: _maxLevelController,
+              ),
               const SizedBox(height: 20),
               Expanded(
                 child: MyDescription(
