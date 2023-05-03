@@ -33,8 +33,13 @@ class EnterCode extends StatelessWidget {
         ),
         actions: Column(
           children: [
-            MyPrimaryButton(
-                text: AppLocalizations.of(context)!.enterCodeAction1),
+            InkWell(
+              onTap: () {
+                AutoRouter.of(context).navigate(const EnterName());
+              },
+              child: MyPrimaryButton(
+                  text: AppLocalizations.of(context)!.enterCodeAction1),
+            ),
             const SizedBox(height: 20),
             InkWell(
               onTap: () {

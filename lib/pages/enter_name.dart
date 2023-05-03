@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/pages/basic_widgets/base_page.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/buttons.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/image.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
+@RoutePage()
 class EnterName extends StatelessWidget {
   const EnterName({super.key});
 
