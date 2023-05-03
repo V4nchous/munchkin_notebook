@@ -30,7 +30,7 @@ abstract class $AppRouter extends _i7.RootStackRouter {
     MaxLevel.name: (routeData) {
       return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.MaxLevel(),
+        child: _i2.MaxLevel(),
       );
     },
     CreateGame.name: (routeData) {
