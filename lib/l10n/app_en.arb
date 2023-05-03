@@ -18,9 +18,13 @@
     "maxLvlAction1": "Продолжить",
     "maxLvlAction2": "Вернуться на стартовый экран",
     "selfCountingTitle": "Самостоятельный подсчёт",
+    "selfCountingImagePath": "assets/images/rectangle.png",
     "selfCountingDescription": "Можно дать возможность каждому игроку самостоятельно считать уровень и бонусы. Тебе не придётся следить за каждым. Но стоит ли им доверять? К тому же, капелька власти ещё никому не навредила.",
     "selfCountingAction1": "Я буду мастером игры",
     "selfCountingAction2": "Каждый считает очки сам",
     "selfCountingAction3": "Вернуться к выбору максимального уровня",
-    "selfCountingImagePath": "assets/images/rectangle.png"
+    "enterNameTitle": "Введите имя манчкина",
+    "enterNameImagePath": "assets/images/munchkin_enter_name.png",
+    "enterNameAction1": "Продолжить",
+    "enterNameAction2": "Вернуться на стартовый экран"
 }
