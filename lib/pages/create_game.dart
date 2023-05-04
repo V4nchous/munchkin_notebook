@@ -32,20 +32,14 @@ class CreateGame extends StatelessWidget {
         ),
         actions: Column(
           children: [
-            InkWell(
-              onTap: () {
-                AutoRouter.of(context).navigate(const MaxLevel());
-              },
-              child: MyPrimaryButton(
-                  text: AppLocalizations.of(context)!.createGameAction1),
+            MyPrimaryButton(
+              text: AppLocalizations.of(context)!.createGameAction1,
+              route: const MaxLevel(),
             ),
             const SizedBox(height: 20),
-            InkWell(
-              onTap: () {
-                AutoRouter.of(context).navigate(const JoinGame());
-              },
-              child: MySecondaryButton(
-                  text: AppLocalizations.of(context)!.createGameAction2),
+            MySecondaryButton(
+              text: AppLocalizations.of(context)!.createGameAction2,
+              route: const JoinGame(),
             )
           ],
         ),

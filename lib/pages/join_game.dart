@@ -33,20 +33,14 @@ class JoinGame extends StatelessWidget {
         ),
         actions: Column(
           children: [
-            InkWell(
-              onTap: () {
-                AutoRouter.of(context).navigate(const EnterCode());
-              },
-              child: MyPrimaryButton(
-                  text: AppLocalizations.of(context)!.joinGameAction1),
+            MyPrimaryButton(
+              text: AppLocalizations.of(context)!.joinGameAction1,
+              route: const EnterCode(),
             ),
             const SizedBox(height: 20),
-            InkWell(
-              onTap: () {
-                AutoRouter.of(context).navigate(const CreateGame());
-              },
-              child: MySecondaryButton(
-                  text: AppLocalizations.of(context)!.joinGameAction2),
+            MySecondaryButton(
+              text: AppLocalizations.of(context)!.joinGameAction2,
+              route: const CreateGame(),
             )
           ],
         ),

@@ -31,14 +31,12 @@ class EnterName extends StatelessWidget {
         actions: Column(
           children: [
             MyPrimaryButton(
-                text: AppLocalizations.of(context)!.enterNameAction1),
+              text: AppLocalizations.of(context)!.enterNameAction1,
+            ),
             const SizedBox(height: 20),
-            InkWell(
-              onTap: () {
-                AutoRouter.of(context).navigate(const CreateGame());
-              },
-              child: MySecondaryButton(
-                  text: AppLocalizations.of(context)!.enterNameAction2),
+            MySecondaryButton(
+              text: AppLocalizations.of(context)!.enterNameAction2,
+              route: const CreateGame(),
             )
           ],
         ),

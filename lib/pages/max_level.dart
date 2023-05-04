@@ -38,20 +38,15 @@ class MaxLevel extends StatelessWidget {
         ),
         actions: Column(
           children: [
-            InkWell(
-              onTap: () {
-                AutoRouter.of(context).navigate(const SelfCounting());
-              },
-              child: MyPrimaryButton(
-                  text: AppLocalizations.of(context)!.maxLvlAction1),
+            MyPrimaryButton(
+              text: AppLocalizations.of(context)!.maxLvlAction1,
+              route: const SelfCounting(),
             ),
             const SizedBox(height: 20),
-            InkWell(
-                onTap: () {
-                  AutoRouter.of(context).navigate(const CreateGame());
-                },
-                child: MySecondaryButton(
-                    text: AppLocalizations.of(context)!.maxLvlAction2))
+            MySecondaryButton(
+              text: AppLocalizations.of(context)!.maxLvlAction2,
+              route: const CreateGame(),
+            )
           ],
         ),
       ),
