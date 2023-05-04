@@ -13,20 +13,16 @@ class MyPrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
-    return Column(
-      children: [
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: AppColors.accentColor,
-            fontSize: 20 * screenScale,
-            height: 0.95,
-            fontWeight: FontWeight.w700,
-            fontFamily: 'academy',
-          ),
-        ),
-      ],
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: AppColors.accentColor,
+        fontSize: 20 * screenScale,
+        height: 0.95,
+        fontWeight: FontWeight.w700,
+        fontFamily: 'academy',
+      ),
     );
   }
 }
@@ -42,19 +38,15 @@ class MySecondaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
-    return Column(
-      children: [
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: AppColors.accentColor,
-            fontSize: 18 * screenScale,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'academy',
-          ),
-        ),
-      ],
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: AppColors.accentColor,
+        fontSize: 18 * screenScale,
+        fontWeight: FontWeight.w400,
+        fontFamily: 'academy',
+      ),
     );
   }
 }
