@@ -35,12 +35,16 @@ class JoinGame extends StatelessWidget {
           children: [
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.joinGameAction1,
-              route: const EnterCode(),
+              action: () {
+                AutoRouter.of(context).navigate(const EnterCode());
+              },
             ),
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.joinGameAction2,
-              route: const CreateGame(),
+              action: () {
+                AutoRouter.of(context).navigate(const CreateGame());
+              },
             )
           ],
         ),

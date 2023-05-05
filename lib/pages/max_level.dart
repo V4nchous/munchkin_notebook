@@ -40,12 +40,16 @@ class MaxLevel extends StatelessWidget {
           children: [
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.maxLvlAction1,
-              route: const SelfCounting(),
+              action: () {
+                AutoRouter.of(context).navigate(const SelfCounting());
+              },
             ),
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.maxLvlAction2,
-              route: const CreateGame(),
+              action: () {
+                AutoRouter.of(context).navigate(const CreateGame());
+              },
             )
           ],
         ),

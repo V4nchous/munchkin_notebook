@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
@@ -7,19 +6,20 @@ class MyPrimaryButton extends StatelessWidget {
   const MyPrimaryButton({
     super.key,
     required this.text,
-    this.route,
+    this.action,
   });
 
+  final Function? action;
   final String text;
-  final PageRouteInfo? route;
 
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
+    Function? onClickAction = action;
     return InkWell(
       onTap: () {
-        if (route != null) {
-          AutoRouter.of(context).navigate(route!);
+        if (onClickAction != null) {
+          onClickAction();
         }
       },
       child: Text(
@@ -41,19 +41,20 @@ class MySecondaryButton extends StatelessWidget {
   const MySecondaryButton({
     super.key,
     required this.text,
-    this.route,
+    this.action,
   });
 
   final String text;
-  final PageRouteInfo? route;
+  final Function? action;
 
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
+    Function? onClickAction = action;
     return InkWell(
       onTap: () {
-        if (route != null) {
-          AutoRouter.of(context).navigate(route!);
+        if (onClickAction != null) {
+          onClickAction();
         }
       },
       child: Text(

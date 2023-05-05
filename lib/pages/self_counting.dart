@@ -43,7 +43,9 @@ class SelfCounting extends StatelessWidget {
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.selfCountingAction3,
-              route: MaxLevel(),
+              action: () {
+                AutoRouter.of(context).navigate(MaxLevel());
+              },
             ),
           ],
         ),

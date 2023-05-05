@@ -33,12 +33,16 @@ class EnterName extends StatelessWidget {
           children: [
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.enterNameAction1,
-              route: const ChooseGender(),
+              action: () {
+                AutoRouter.of(context).navigate(const ChooseGender());
+              },
             ),
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.enterNameAction2,
-              route: const CreateGame(),
+              action: () {
+                AutoRouter.of(context).navigate(const CreateGame());
+              },
             )
           ],
         ),

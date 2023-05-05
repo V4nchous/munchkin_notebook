@@ -34,12 +34,16 @@ class CreateGame extends StatelessWidget {
           children: [
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.createGameAction1,
-              route: MaxLevel(),
+              action: () {
+                AutoRouter.of(context).navigate(MaxLevel());
+              },
             ),
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.createGameAction2,
-              route: const JoinGame(),
+              action: () {
+                AutoRouter.of(context).navigate(const JoinGame());
+              },
             )
           ],
         ),

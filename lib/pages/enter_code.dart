@@ -35,12 +35,16 @@ class EnterCode extends StatelessWidget {
           children: [
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.enterCodeAction1,
-              route: const EnterName(),
+              action: () {
+                AutoRouter.of(context).navigate(const EnterName());
+              },
             ),
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.enterCodeAction2,
-              route: const CreateGame(),
+              action: () {
+                AutoRouter.of(context).navigate(const CreateGame());
+              },
             )
           ],
         ),
