@@ -26,5 +26,11 @@
     "enterNameTitle": "Введите имя манчкина",
     "enterNameImagePath": "assets/images/munchkin_enter_name.png",
     "enterNameAction1": "Продолжить",
-    "enterNameAction2": "Вернуться на стартовый экран"
+    "enterNameAction2": "Вернуться на стартовый экран",
+    "chooseGenderTitle": "Выберите пол",
+    "chooseGenderImagePath": "assets/images/rectangle.png",
+    "chooseGenderFemaleImagePath": "assets/images/choose_gender_female.png",
+    "chooseGenderMaleImagePath": "assets/images/choose_gender_male.png",
+    "chooseGenderAction1": "Продолжить",
+    "chooseGenderAction2": "Вернуться к вводу имени"
 }
