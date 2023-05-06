@@ -9,17 +9,16 @@ class MyPrimaryButton extends StatelessWidget {
     this.action,
   });
 
-  final Function? action;
+  final void Function()? action;
   final String text;
 
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
-    Function? onClickAction = action;
     return InkWell(
       onTap: () {
-        if (onClickAction != null) {
-          onClickAction();
+        if (action != null) {
+          action!();
         }
       },
       child: Text(
@@ -50,11 +49,11 @@ class MySecondaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
-    Function? onClickAction = action;
+
     return InkWell(
       onTap: () {
-        if (onClickAction != null) {
-          onClickAction();
+        if (action != null) {
+          action!();
         }
       },
       child: Text(

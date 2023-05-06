@@ -39,6 +39,9 @@ class ChooseGender extends StatelessWidget {
           const SizedBox(height: 20),
           MySecondaryButton(
             text: AppLocalizations.of(context)!.chooseGenderAction2,
+            action: () {
+              AutoRouter.of(context).navigate(const EnterName());
+            },
           ),
         ]),
       ),
