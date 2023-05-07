@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
 
-// ignore: must_be_immutable
 class LvlSelectionGroup extends StatefulWidget {
   const LvlSelectionGroup({
     super.key,
@@ -16,6 +15,19 @@ class LvlSelectionGroup extends StatefulWidget {
 }
 
 class _LvlSelectionGroupState extends State<LvlSelectionGroup> {
+  late int _currentLevel;
+
+  @override
+  void initState() {
+    _currentLevel = widget.controller.getCurrentLevel;
+    widget.controller.setLevelListener((level) {
+      setState(() {
+        _currentLevel = level;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
@@ -26,9 +38,7 @@ class _LvlSelectionGroupState extends State<LvlSelectionGroup> {
       children: [
         InkWell(
           onTap: () {
-            setState(() {
-              widget.controller.decrementLevel();
-            });
+            widget.controller.decrementLevel();
           },
           child: SizedBox(
             height: 30 * screenScale,
@@ -38,7 +48,7 @@ class _LvlSelectionGroupState extends State<LvlSelectionGroup> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            widget.controller.currentValue.toString(),
+            _currentLevel.toString(),
             style: TextStyle(
               color: AppColors.accentColor,
               fontSize: 48 * screenScale,
@@ -49,9 +59,7 @@ class _LvlSelectionGroupState extends State<LvlSelectionGroup> {
         ),
         InkWell(
           onTap: () {
-            setState(() {
-              widget.controller.incrementLevel();
-            });
+            widget.controller.incrementLevel();
           },
           child: SizedBox(
             height: 30 * screenScale,
@@ -70,26 +78,36 @@ class MaxLevelController {
 
   MaxLevelController({
     int initialValue = _defaultLevel,
-  }) : currentValue = initialValue;
+  }) : _currentValue = initialValue;
 
-  int currentValue;
+  int _currentValue;
+  Function(int)? _onLevelChanged;
+
+  int get getCurrentLevel => _currentValue;
+
+  void setLevelListener(Function(int)? onLevelChanged) {
+    _onLevelChanged = onLevelChanged;
+  }
 
   void setLevel(int value) {
-    if (currentValue >= MaxLevelController._minLevel &&
-        currentValue <= MaxLevelController._maxLevel) {
-      currentValue = value;
+    if (_currentValue >= MaxLevelController._minLevel &&
+        _currentValue <= MaxLevelController._maxLevel) {
+      _currentValue = value;
+      _onLevelChanged?.call(_currentValue);
     }
   }
 
   void decrementLevel() {
-    if (currentValue > MaxLevelController._minLevel) {
-      currentValue--;
+    if (_currentValue > MaxLevelController._minLevel) {
+      _currentValue--;
+      _onLevelChanged?.call(_currentValue);
     }
   }
 
   void incrementLevel() {
-    if (currentValue < MaxLevelController._maxLevel) {
-      currentValue++;
+    if (_currentValue < MaxLevelController._maxLevel) {
+      _currentValue++;
+      _onLevelChanged?.call(_currentValue);
     }
   }
 }

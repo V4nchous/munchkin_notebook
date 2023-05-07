@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
 
-// ignore: must_be_immutable
 class ChooseGenderGroup extends StatefulWidget {
   const ChooseGenderGroup({
     super.key,
