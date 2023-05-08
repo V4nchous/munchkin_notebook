@@ -15,13 +15,15 @@ class ChooseGenderGroup extends StatefulWidget {
 }
 
 class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
-  late int _currentGender;
-  double maleOpacity = 0.3;
-  double femaleOpacity = 0.3;
+  late Gender _currentGender;
+  static const double _opacitySelected = 1;
+  static const double _opacityNotSelected = 0.3;
+  late double _maleOpacity, _femaleOpacity;
 
   @override
   void initState() {
     _currentGender = widget.controller.getCurrentGender;
+    setOpacity(_currentGender);
     widget.controller.setGenderListener((gender) {
       setState(() {
         setOpacity(gender);
@@ -30,15 +32,19 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
     super.initState();
   }
 
-  void setOpacity(int gender) {
+  void setOpacity(Gender gender) {
     switch (gender) {
-      case 1:
-        maleOpacity = 1;
-        femaleOpacity = 0.3;
+      case Gender.male:
+        _maleOpacity = _opacitySelected;
+        _femaleOpacity = _opacityNotSelected;
         break;
-      case 2:
-        maleOpacity = 0.3;
-        femaleOpacity = 1;
+      case Gender.female:
+        _maleOpacity = _opacityNotSelected;
+        _femaleOpacity = _opacitySelected;
+        break;
+      default:
+        _maleOpacity = _opacityNotSelected;
+        _femaleOpacity = _opacityNotSelected;
         break;
     }
   }
@@ -57,7 +63,7 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
             });
           },
           child: Opacity(
-            opacity: femaleOpacity,
+            opacity: _femaleOpacity,
             child: Image.asset(
               AppLocalizations.of(context)!.chooseGenderFemaleImagePath,
               height: 75 * screenScale,
@@ -72,7 +78,7 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
             });
           },
           child: Opacity(
-            opacity: maleOpacity,
+            opacity: _maleOpacity,
             child: Image.asset(
               AppLocalizations.of(context)!.chooseGenderMaleImagePath,
               height: 80 * screenScale,
@@ -85,39 +91,35 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
 }
 
 enum Gender {
-  male(id: 1),
-  female(id: 2);
+  male,
+  female;
 
-  const Gender({
-    required this.id,
-  });
-
-  final int id;
+  const Gender();
 }
 
 class ChooseGenderOpacityController {
-  static const int _defaultGender = 0;
+  static const Gender _defaultGender = Gender.male;
 
   ChooseGenderOpacityController({
-    int initialValue = _defaultGender,
+    Gender initialValue = _defaultGender,
   }) : _currentGender = initialValue;
 
-  int _currentGender;
-  Function(int)? _onGenderChanged;
+  Gender _currentGender;
+  Function(Gender)? _onGenderChanged;
 
-  int get getCurrentGender => _currentGender;
+  Gender get getCurrentGender => _currentGender;
 
-  void setGenderListener(Function(int)? onGenderChanged) {
+  void setGenderListener(Function(Gender)? onGenderChanged) {
     _onGenderChanged = onGenderChanged;
   }
 
   void maleChosen() {
-    _currentGender = Gender.male.id;
+    _currentGender = Gender.male;
     _onGenderChanged?.call(_currentGender);
   }
 
   void femaleChosen() {
-    _currentGender = Gender.female.id;
+    _currentGender = Gender.female;
     _onGenderChanged?.call(_currentGender);
   }
 }
