@@ -1,60 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-// ignore: must_be_immutable
-class EnterCodeGroup extends StatelessWidget {
-  EnterCodeGroup({super.key});
-
-  List<int> values = [0, 7, 8, 2, 3];
+class EnterCodeGroup extends StatefulWidget {
+  const EnterCodeGroup({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _EnterCodeGroupUnit(value: values[0]),
-        const SizedBox(width: 10),
-        _EnterCodeGroupUnit(value: values[1]),
-        const SizedBox(width: 10),
-        _EnterCodeGroupUnit(value: values[2]),
-        const SizedBox(width: 10),
-        _EnterCodeGroupUnit(value: values[3]),
-        const SizedBox(width: 10),
-        _EnterCodeGroupUnit(value: values[4]),
-      ],
-    );
-  }
+  State<EnterCodeGroup> createState() => _EnterCodeGroupState();
 }
 
-// ignore: must_be_immutable
-class _EnterCodeGroupUnit extends StatelessWidget {
-  _EnterCodeGroupUnit({required this.value});
-
-  int? value;
-
+class _EnterCodeGroupState extends State<EnterCodeGroup> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
 
-    return Column(
-      children: [
-        Text(
-          value.toString(),
-          style: TextStyle(
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: PinCodeTextField(
+        appContext: context,
+        length: 5,
+        onChanged: ((value) {
+          print(value);
+        }),
+        controller: controller,
+        showCursor: false,
+        animationType: AnimationType.fade,
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        textStyle: TextStyle(
             color: AppColors.accentColor,
             fontSize: 48 * screenScale,
             fontWeight: FontWeight.w700,
-            fontFamily: 'academy',
-          ),
+            fontFamily: 'academy'),
+        pinTheme: PinTheme(
+          shape: PinCodeFieldShape.underline,
+          borderWidth: 4 * screenScale,
+          fieldHeight: 60 * screenScale,
+          fieldWidth: 40 * screenScale,
+          selectedColor: AppColors.accentColor,
+          inactiveColor: AppColors.accentColor,
+          activeColor: AppColors.accentColor,
         ),
-        Container(
-          width: 40 * screenScale,
-          height: 4 * screenScale,
-          color: AppColors.accentColor,
-        ),
-      ],
+      ),
     );
   }
 }

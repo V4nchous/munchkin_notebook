@@ -22,7 +22,7 @@ class EnterCode extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              EnterCodeGroup(),
+              const EnterCodeGroup(),
               const SizedBox(height: 20),
               Expanded(
                 child: MyDescription(
