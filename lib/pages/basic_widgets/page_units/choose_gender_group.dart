@@ -47,9 +47,7 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
       children: [
         InkWell(
           onTap: () {
-            setState(() {
-              widget.controller.genderChosen(Gender.female);
-            });
+            widget.controller.genderChosen(Gender.female);
           },
           child: Opacity(
             opacity: getOpacity(Gender.female),
@@ -62,9 +60,7 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
         const SizedBox(width: 60),
         InkWell(
           onTap: () {
-            setState(() {
-              widget.controller.genderChosen(Gender.male);
-            });
+            widget.controller.genderChosen(Gender.male);
           },
           child: Opacity(
             opacity: getOpacity(Gender.male),
