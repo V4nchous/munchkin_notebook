@@ -22,9 +22,7 @@ class _EnterCodeGroupState extends State<EnterCodeGroup> {
       child: PinCodeTextField(
         appContext: context,
         length: 5,
-        onChanged: ((value) {
-          print(value);
-        }),
+        onChanged: ((value) {}),
         controller: controller,
         showCursor: false,
         animationType: AnimationType.fade,
