@@ -15,6 +15,19 @@ class ChooseGenderGroup extends StatefulWidget {
 }
 
 class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
+  late int _currentGender;
+
+  @override
+  void initState() {
+    _currentGender = widget.controller.getCurrentGender;
+    widget.controller.setGenderListener((gender) {
+      setState(() {
+        widget.controller.setOpacity(gender);
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
@@ -25,11 +38,11 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
         InkWell(
           onTap: () {
             setState(() {
-              widget.controller.setFemaleOpacity();
+              widget.controller.femaleChosen();
             });
           },
           child: Opacity(
-            opacity: widget.controller.femaleOpacitySelected,
+            opacity: widget.controller.femaleOpacity,
             child: Image.asset(
               AppLocalizations.of(context)!.chooseGenderFemaleImagePath,
               height: 75 * screenScale,
@@ -40,11 +53,11 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
         InkWell(
           onTap: () {
             setState(() {
-              widget.controller.setMaleOpacity();
+              widget.controller.maleChosen();
             });
           },
           child: Opacity(
-            opacity: widget.controller.maleOpacitySelected,
+            opacity: widget.controller.maleOpacity,
             child: Image.asset(
               AppLocalizations.of(context)!.chooseGenderMaleImagePath,
               height: 80 * screenScale,
@@ -57,21 +70,44 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
 }
 
 class ChooseGenderOpacityController {
-  static const double _opacitySelected = 1;
-  static const double _opacityNotSelected = 0.3;
+  static const int _defaultGender = 0;
+  static const int _male = 1;
+  static const int _female = 2;
 
-  ChooseGenderOpacityController();
+  ChooseGenderOpacityController({
+    int initialValue = _defaultGender,
+  }) : _currentGender = initialValue;
 
-  double femaleOpacitySelected = _opacityNotSelected;
-  double maleOpacitySelected = _opacityNotSelected;
+  int _currentGender;
+  Function(int)? _onGenderChanged;
+  double maleOpacity = 0.3;
+  double femaleOpacity = 0.3;
 
-  void setFemaleOpacity() {
-    femaleOpacitySelected = _opacitySelected;
-    maleOpacitySelected = _opacityNotSelected;
+  int get getCurrentGender => _currentGender;
+
+  void setGenderListener(Function(int)? onGenderChanged) {
+    _onGenderChanged = onGenderChanged;
   }
 
-  void setMaleOpacity() {
-    maleOpacitySelected = _opacitySelected;
-    femaleOpacitySelected = _opacityNotSelected;
+  void maleChosen() {
+    _currentGender = _male;
+    _onGenderChanged?.call(_currentGender);
+  }
+
+  void femaleChosen() {
+    _currentGender = _female;
+    _onGenderChanged?.call(_currentGender);
+  }
+
+  void setOpacity(int gender) {
+    switch (gender) {
+      case 1:
+        maleOpacity = 1.0;
+        femaleOpacity = 0.3;
+        break;
+      case 2:
+        maleOpacity = 0.3;
+        femaleOpacity = 1.0;
+    }
   }
 }
