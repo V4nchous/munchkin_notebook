@@ -6,6 +6,7 @@ import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/pages/basic_widgets/base_page.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/buttons.dart';
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/choose_gender_group.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/enter_name.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/image.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
@@ -31,14 +32,17 @@ class EnterName extends StatelessWidget {
         actions: Column(
           children: [
             MyPrimaryButton(
-                text: AppLocalizations.of(context)!.enterNameAction1),
+              text: AppLocalizations.of(context)!.enterNameAction1,
+              action: () {
+                AutoRouter.of(context).navigate(const ChooseGender());
+              },
+            ),
             const SizedBox(height: 20),
-            InkWell(
-              onTap: () {
+            MySecondaryButton(
+              text: AppLocalizations.of(context)!.enterNameAction2,
+              action: () {
                 AutoRouter.of(context).navigate(const CreateGame());
               },
-              child: MySecondaryButton(
-                  text: AppLocalizations.of(context)!.enterNameAction2),
             )
           ],
         ),

@@ -41,12 +41,11 @@ class SelfCounting extends StatelessWidget {
             MyPrimaryButton(
                 text: AppLocalizations.of(context)!.selfCountingAction2),
             const SizedBox(height: 20),
-            InkWell(
-              onTap: () {
-                AutoRouter.of(context).navigate(const MaxLevel());
+            MySecondaryButton(
+              text: AppLocalizations.of(context)!.selfCountingAction3,
+              action: () {
+                AutoRouter.of(context).navigate(MaxLevel());
               },
-              child: MySecondaryButton(
-                  text: AppLocalizations.of(context)!.selfCountingAction3),
             ),
           ],
         ),
