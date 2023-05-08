@@ -18,34 +18,23 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
   late Gender _currentGender;
   static const double _opacitySelected = 1;
   static const double _opacityNotSelected = 0.3;
-  late double _maleOpacity, _femaleOpacity;
 
   @override
   void initState() {
     _currentGender = widget.controller.getCurrentGender;
-    setOpacity(_currentGender);
     widget.controller.setGenderListener((gender) {
       setState(() {
-        setOpacity(gender);
+        _currentGender = gender;
       });
     });
     super.initState();
   }
 
-  void setOpacity(Gender gender) {
-    switch (gender) {
-      case Gender.male:
-        _maleOpacity = _opacitySelected;
-        _femaleOpacity = _opacityNotSelected;
-        break;
-      case Gender.female:
-        _maleOpacity = _opacityNotSelected;
-        _femaleOpacity = _opacitySelected;
-        break;
-      default:
-        _maleOpacity = _opacityNotSelected;
-        _femaleOpacity = _opacityNotSelected;
-        break;
+  double getOpacity(Gender gender) {
+    if (gender == _currentGender) {
+      return _opacitySelected;
+    } else {
+      return _opacityNotSelected;
     }
   }
 
@@ -59,11 +48,11 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
         InkWell(
           onTap: () {
             setState(() {
-              widget.controller.femaleChosen();
+              widget.controller.genderChosen(Gender.female);
             });
           },
           child: Opacity(
-            opacity: _femaleOpacity,
+            opacity: getOpacity(Gender.female),
             child: Image.asset(
               AppLocalizations.of(context)!.chooseGenderFemaleImagePath,
               height: 75 * screenScale,
@@ -74,11 +63,11 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
         InkWell(
           onTap: () {
             setState(() {
-              widget.controller.maleChosen();
+              widget.controller.genderChosen(Gender.male);
             });
           },
           child: Opacity(
-            opacity: _maleOpacity,
+            opacity: getOpacity(Gender.male),
             child: Image.asset(
               AppLocalizations.of(context)!.chooseGenderMaleImagePath,
               height: 80 * screenScale,
@@ -93,8 +82,6 @@ class _ChooseGenderGroupState extends State<ChooseGenderGroup> {
 enum Gender {
   male,
   female;
-
-  const Gender();
 }
 
 class ChooseGenderOpacityController {
@@ -113,13 +100,8 @@ class ChooseGenderOpacityController {
     _onGenderChanged = onGenderChanged;
   }
 
-  void maleChosen() {
-    _currentGender = Gender.male;
-    _onGenderChanged?.call(_currentGender);
-  }
-
-  void femaleChosen() {
-    _currentGender = Gender.female;
+  void genderChosen(Gender gender) {
+    _currentGender = gender;
     _onGenderChanged?.call(_currentGender);
   }
 }
