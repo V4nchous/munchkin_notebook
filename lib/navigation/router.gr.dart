@@ -26,7 +26,7 @@ abstract class $AppRouter extends _i8.RootStackRouter {
     EnterCode.name: (routeData) {
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.EnterCode(),
+        child: _i1.EnterCode(),
       );
     },
     MaxLevel.name: (routeData) {

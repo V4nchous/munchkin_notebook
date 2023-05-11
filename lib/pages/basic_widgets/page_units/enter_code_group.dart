@@ -5,25 +5,33 @@ import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class EnterCodeGroup extends StatefulWidget {
-  const EnterCodeGroup({super.key});
+  const EnterCodeGroup({
+    super.key,
+    required this.controller,
+  });
+
+  final TextEditingController controller;
 
   @override
   State<EnterCodeGroup> createState() => _EnterCodeGroupState();
 }
 
 class _EnterCodeGroupState extends State<EnterCodeGroup> {
-  TextEditingController controller = TextEditingController();
+  late String _codeValue;
+
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
-
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: PinCodeTextField(
+        autoDisposeControllers: false,
         appContext: context,
         length: 5,
-        onChanged: ((value) {}),
-        controller: controller,
+        onChanged: ((value) {
+          _codeValue = value;
+        }),
+        controller: widget.controller,
         showCursor: false,
         animationType: AnimationType.fade,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],

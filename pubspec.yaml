@@ -17,6 +17,7 @@ dependencies:
   intl: any
   pin_code_fields: ^7.4.0
 
+
 dev_dependencies:
   auto_route_generator: ^6.2.0
   build_runner: ^2.3.3

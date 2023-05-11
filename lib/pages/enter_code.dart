@@ -10,8 +10,21 @@ import 'package:munchkin_notebook/pages/basic_widgets/page_units/enter_code_grou
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
-class EnterCode extends StatelessWidget {
-  const EnterCode({super.key});
+class EnterCode extends StatefulWidget {
+  EnterCode({super.key});
+
+  @override
+  State<EnterCode> createState() => _EnterCodeState();
+}
+
+class _EnterCodeState extends State<EnterCode> {
+  final TextEditingController _codeValueController = TextEditingController();
+
+  @override
+  void dispose() {
+    _codeValueController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +35,9 @@ class EnterCode extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              const EnterCodeGroup(),
+              EnterCodeGroup(
+                controller: _codeValueController,
+              ),
               const SizedBox(height: 20),
               Expanded(
                 child: MyDescription(
