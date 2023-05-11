@@ -11,7 +11,7 @@ import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
 class EnterCode extends StatefulWidget {
-  EnterCode({super.key});
+  const EnterCode({super.key});
 
   @override
   State<EnterCode> createState() => _EnterCodeState();
