@@ -35,8 +35,11 @@ class _EnterCodeState extends State<EnterCode> {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              EnterCodeGroup(
-                controller: _codeValueController,
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: EnterCodeGroup(
+                  controller: _codeValueController,
+                ),
               ),
               const SizedBox(height: 20),
               Expanded(

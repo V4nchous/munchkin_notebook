@@ -17,38 +17,31 @@ class EnterCodeGroup extends StatefulWidget {
 }
 
 class _EnterCodeGroupState extends State<EnterCodeGroup> {
-  late String _codeValue;
-
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      child: PinCodeTextField(
-        autoDisposeControllers: false,
-        appContext: context,
-        length: 5,
-        onChanged: ((value) {
-          _codeValue = value;
-        }),
-        controller: widget.controller,
-        showCursor: false,
-        animationType: AnimationType.fade,
-        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        textStyle: TextStyle(
-            color: AppColors.accentColor,
-            fontSize: 48 * screenScale,
-            fontWeight: FontWeight.w700,
-            fontFamily: 'academy'),
-        pinTheme: PinTheme(
-          shape: PinCodeFieldShape.underline,
-          borderWidth: 4 * screenScale,
-          fieldHeight: 60 * screenScale,
-          fieldWidth: 40 * screenScale,
-          selectedColor: AppColors.accentColor,
-          inactiveColor: AppColors.accentColor,
-          activeColor: AppColors.accentColor,
-        ),
+    return PinCodeTextField(
+      autoDisposeControllers: false,
+      appContext: context,
+      length: 5,
+      onChanged: ((value) {}),
+      controller: widget.controller,
+      showCursor: false,
+      animationType: AnimationType.fade,
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      textStyle: TextStyle(
+          color: AppColors.accentColor,
+          fontSize: 48 * screenScale,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'academy'),
+      pinTheme: PinTheme(
+        shape: PinCodeFieldShape.underline,
+        borderWidth: 4 * screenScale,
+        fieldHeight: 60 * screenScale,
+        fieldWidth: 40 * screenScale,
+        selectedColor: AppColors.accentColor,
+        inactiveColor: AppColors.accentColor,
+        activeColor: AppColors.accentColor,
       ),
     );
   }
