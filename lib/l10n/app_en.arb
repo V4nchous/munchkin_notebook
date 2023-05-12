@@ -32,5 +32,8 @@
     "chooseGenderFemaleImagePath": "assets/images/choose_gender_female.png",
     "chooseGenderMaleImagePath": "assets/images/choose_gender_male.png",
     "chooseGenderAction1": "Продолжить",
-    "chooseGenderAction2": "Вернуться к вводу имени"
+    "chooseGenderAction2": "Вернуться к вводу имени",
+    "chooseColorTitle": "Выберите цвет",
+    "chooseColorAction1": "Продолжить",
+    "chooseColorAction2": "Вернуться к выбору пола"
 }

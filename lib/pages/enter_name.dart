@@ -6,7 +6,6 @@ import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/pages/basic_widgets/base_page.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/buttons.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/choose_gender_group.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/enter_name.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/image.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
@@ -34,7 +33,7 @@ class EnterName extends StatelessWidget {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.enterNameAction1,
               action: () {
-                AutoRouter.of(context).navigate(const ChooseGender());
+                AutoRouter.of(context).navigate(ChooseGender());
               },
             ),
             const SizedBox(height: 20),
