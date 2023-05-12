@@ -4,7 +4,7 @@ import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class EnterCodeGroup extends StatefulWidget {
+class EnterCodeGroup extends StatelessWidget {
   const EnterCodeGroup({
     super.key,
     required this.controller,
@@ -12,20 +12,17 @@ class EnterCodeGroup extends StatefulWidget {
 
   final TextEditingController controller;
 
-  @override
-  State<EnterCodeGroup> createState() => _EnterCodeGroupState();
-}
+  static const int _codeLength = 5;
 
-class _EnterCodeGroupState extends State<EnterCodeGroup> {
   @override
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
     return PinCodeTextField(
       autoDisposeControllers: false,
       appContext: context,
-      length: 5,
+      length: _codeLength,
       onChanged: ((value) {}),
-      controller: widget.controller,
+      controller: controller,
       showCursor: false,
       animationType: AnimationType.fade,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
