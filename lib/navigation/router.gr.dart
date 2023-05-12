@@ -27,7 +27,7 @@ abstract class $AppRouter extends _i9.RootStackRouter {
     ChooseColor.name: (routeData) {
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.ChooseColor(),
+        child: _i1.ChooseColor(),
       );
     },
     ChooseGender.name: (routeData) {

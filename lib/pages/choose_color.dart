@@ -10,17 +10,21 @@ import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
 class ChooseColor extends StatelessWidget {
-  const ChooseColor({super.key});
+  ChooseColor({super.key});
+
+  final ChooseColorController _colorController = ChooseColorController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: MyBasePage(
         title: MyTitle(text: AppLocalizations.of(context)!.chooseColorTitle),
-        body: const Expanded(
+        body: Expanded(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
-            child: ChooseColorGroup(),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: ChooseColorGroup(
+              controller: _colorController,
+            ),
           ),
         ),
         actions: Column(
