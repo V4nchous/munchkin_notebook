@@ -13,50 +13,17 @@ class ChooseColorGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        RowOfColorUnits(controller: controller),
-        RowOfColorUnits(controller: controller),
-        RowOfColorUnits(controller: controller),
-        RowOfColorUnits(controller: controller),
-        RowOfColorUnits(controller: controller),
-        RowOfColorUnits(controller: controller),
-        RowOfColorUnits(controller: controller),
-      ],
-    );
-  }
-}
-
-class RowOfColorUnits extends StatelessWidget {
-  const RowOfColorUnits({
-    super.key,
-    required this.controller,
-  });
-
-  final ChooseColorController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        ColorUnit(
-          controller: controller,
-        ),
-        ColorUnit(
-          controller: controller,
-        ),
-        ColorUnit(
-          controller: controller,
-        ),
-        ColorUnit(
-          controller: controller,
-        ),
-        ColorUnit(
-          controller: controller,
-        ),
-      ],
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 35,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 5,
+        mainAxisSpacing: 30,
+        crossAxisSpacing: 15,
+      ),
+      itemBuilder: (context, index) {
+        return ColorUnit(controller: controller);
+      },
     );
   }
 }
