@@ -35,5 +35,6 @@
     "chooseGenderAction2": "Вернуться к вводу имени",
     "chooseColorTitle": "Выберите цвет",
     "chooseColorAction1": "Продолжить",
-    "chooseColorAction2": "Вернуться к выбору пола"
+    "chooseColorAction2": "Вернуться к выбору пола",
+    "chooseColorImageSelectedPath": "assets/images/selected.png"
 }

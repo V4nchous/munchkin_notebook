@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChooseColorGroup extends StatefulWidget {
   const ChooseColorGroup({
@@ -16,14 +17,19 @@ class ChooseColorGroup extends StatefulWidget {
 
 class _ChooseColorGroupState extends State<ChooseColorGroup> {
   List<Color> gridColors = [randomColor().withOpacity(1.0)];
+  static const _itemCount = 35;
+  late Color _currentColor;
 
   @override
   void initState() {
+    _currentColor = widget.controller.getCurrentColor;
     for (var i = 0; i < 35; i++) {
       gridColors.add(randomColor().withOpacity(1.0));
     }
     widget.controller.setColorListener((color) {
-      setState(() {});
+      setState(() {
+        _currentColor = widget.controller.getCurrentColor;
+      });
     });
     super.initState();
   }
@@ -32,7 +38,7 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
   Widget build(BuildContext context) {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 35,
+      itemCount: _itemCount,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 5,
         mainAxisSpacing: 25,
@@ -55,10 +61,11 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
             ),
             child: Stack(
               children: [
-                if (gridColors[index] == widget.controller.getCurrentColor)
+                if (gridColors[index] == _currentColor)
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Image.asset('assets/images/selected.png'),
+                    child: Image.asset(AppLocalizations.of(context)!
+                        .chooseColorImageSelectedPath),
                   )
               ],
             ),
