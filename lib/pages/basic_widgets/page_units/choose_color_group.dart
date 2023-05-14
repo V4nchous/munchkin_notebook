@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
 
-class ChooseColorGroup extends StatelessWidget {
+class ChooseColorGroup extends StatefulWidget {
   const ChooseColorGroup({
     super.key,
     required this.controller,
@@ -12,62 +11,60 @@ class ChooseColorGroup extends StatelessWidget {
   final ChooseColorController controller;
 
   @override
+  State<ChooseColorGroup> createState() => _ChooseColorGroupState();
+}
+
+class _ChooseColorGroupState extends State<ChooseColorGroup> {
+  List<Color> gridColors = [randomColor().withOpacity(1.0)];
+
+  @override
+  void initState() {
+    for (var i = 0; i < 35; i++) {
+      gridColors.add(randomColor().withOpacity(1.0));
+    }
+    widget.controller.setColorListener((color) {
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       itemCount: 35,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 5,
-        mainAxisSpacing: 30,
+        mainAxisSpacing: 25,
         crossAxisSpacing: 15,
       ),
       itemBuilder: (context, index) {
-        return ColorUnit(controller: controller);
-      },
-    );
-  }
-}
-
-class ColorUnit extends StatefulWidget {
-  const ColorUnit({
-    super.key,
-    required this.controller,
-  });
-
-  final ChooseColorController controller;
-
-  @override
-  State<ColorUnit> createState() => _ColorUnitState();
-}
-
-class _ColorUnitState extends State<ColorUnit> {
-  late Color color;
-
-  @override
-  void initState() {
-    color = randomColor().withOpacity(1.0);
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    double screenScale = getScreenScale(context);
-
-    return InkWell(
-      onTap: () {
-        widget.controller.setCurrentColor(color);
-      },
-      child: Container(
-        width: 40 * screenScale,
-        height: 40 * screenScale,
-        decoration: BoxDecoration(
-          color: color,
-          border: Border.all(
-            color: AppColors.accentColor,
+        return InkWell(
+          onTap: () {
+            widget.controller.setSelectedColor(gridColors[index]);
+          },
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: gridColors[index],
+              border: Border.all(
+                color: AppColors.accentColor,
+              ),
+              borderRadius: BorderRadius.circular(100),
+            ),
+            child: Stack(
+              children: [
+                if (gridColors[index] == widget.controller.getCurrentColor)
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset('assets/images/selected.png'),
+                  )
+              ],
+            ),
           ),
-          borderRadius: BorderRadius.circular(100),
-        ),
-      ),
+        );
+      },
     );
   }
 }
@@ -75,11 +72,17 @@ class _ColorUnitState extends State<ColorUnit> {
 Color randomColor() => Color((math.Random().nextDouble() * 0xFFFFFF).toInt());
 
 class ChooseColorController {
-  late Color _currentColor;
+  Color _selectedColor = Colors.black;
+  Function(Color)? _onColorSelected;
 
-  Color get getCurrentColor => _currentColor;
+  Color get getCurrentColor => _selectedColor;
 
-  void setCurrentColor(Color color) {
-    _currentColor = color;
+  void setSelectedColor(Color color) {
+    _selectedColor = color;
+    _onColorSelected?.call(_selectedColor);
+  }
+
+  void setColorListener(Function(Color)? onColorSelected) {
+    _onColorSelected = onColorSelected;
   }
 }
