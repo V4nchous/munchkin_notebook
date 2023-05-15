@@ -28,7 +28,7 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
     }
     widget.controller.setColorListener((color) {
       setState(() {
-        _currentColor = widget.controller.getCurrentColor;
+        _currentColor = color;
       });
     });
     super.initState();

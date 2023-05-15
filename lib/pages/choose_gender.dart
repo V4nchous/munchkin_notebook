@@ -37,7 +37,7 @@ class ChooseGender extends StatelessWidget {
           MyPrimaryButton(
             text: AppLocalizations.of(context)!.chooseGenderAction1,
             action: () {
-              AutoRouter.of(context).navigate(const ChooseColor());
+              AutoRouter.of(context).navigate(ChooseColor());
             },
           ),
           const SizedBox(height: 20),
