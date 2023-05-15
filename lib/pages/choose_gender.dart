@@ -1,5 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
@@ -35,7 +35,11 @@ class ChooseGender extends StatelessWidget {
         ),
         actions: Column(children: [
           MyPrimaryButton(
-              text: AppLocalizations.of(context)!.chooseGenderAction1),
+            text: AppLocalizations.of(context)!.chooseGenderAction1,
+            action: () {
+              AutoRouter.of(context).navigate(const ChooseColor());
+            },
+          ),
           const SizedBox(height: 20),
           MySecondaryButton(
             text: AppLocalizations.of(context)!.chooseGenderAction2,
