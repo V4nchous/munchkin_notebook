@@ -31,7 +31,11 @@ class ChooseColor extends StatelessWidget {
           children: [
             const SizedBox(height: 40),
             MyPrimaryButton(
-                text: AppLocalizations.of(context)!.chooseColorAction1),
+              text: AppLocalizations.of(context)!.chooseColorAction1,
+              action: () {
+                AutoRouter.of(context).navigate(const EmptyGame());
+              },
+            ),
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.chooseColorAction2,
