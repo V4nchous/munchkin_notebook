@@ -44,8 +44,7 @@ class ChooseColor extends StatelessWidget {
             MySecondaryButton(
               text: AppLocalizations.of(context)!.chooseColorAction2,
               action: () {
-                AutoRouter.of(context)
-                    .navigate(ChooseGender(playerName: playerName));
+                AutoRouter.of(context).pop();
               },
             )
           ],
