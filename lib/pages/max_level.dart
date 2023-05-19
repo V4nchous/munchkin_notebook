@@ -48,7 +48,7 @@ class MaxLevel extends StatelessWidget {
             MySecondaryButton(
               text: AppLocalizations.of(context)!.maxLvlAction2,
               action: () {
-                AutoRouter.of(context).navigate(const CreateGame());
+                AutoRouter.of(context).pop();
               },
             )
           ],

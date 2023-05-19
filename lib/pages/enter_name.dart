@@ -12,7 +12,9 @@ import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
 
 @RoutePage()
 class EnterName extends StatelessWidget {
-  const EnterName({super.key});
+  EnterName({super.key});
+
+  final TextEditingController _playerNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class EnterName extends StatelessWidget {
             children: [
               MyImage(path: AppLocalizations.of(context)!.enterNameImagePath),
               const SizedBox(height: 40),
-              const EnterNameWidget(),
+              EnterNameWidget(controller: _playerNameController),
             ],
           ),
         ),
@@ -33,7 +35,8 @@ class EnterName extends StatelessWidget {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.enterNameAction1,
               action: () {
-                AutoRouter.of(context).navigate(ChooseGender());
+                AutoRouter.of(context).navigate(
+                    ChooseGender(playerName: _playerNameController.text));
               },
             ),
             const SizedBox(height: 20),
