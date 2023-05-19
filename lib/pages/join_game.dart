@@ -43,7 +43,7 @@ class JoinGame extends StatelessWidget {
             MySecondaryButton(
               text: AppLocalizations.of(context)!.joinGameAction2,
               action: () {
-                AutoRouter.of(context).navigate(const CreateGame());
+                AutoRouter.of(context).pop();
               },
             )
           ],

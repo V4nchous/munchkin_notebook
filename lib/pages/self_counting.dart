@@ -44,7 +44,7 @@ class SelfCounting extends StatelessWidget {
             MySecondaryButton(
               text: AppLocalizations.of(context)!.selfCountingAction3,
               action: () {
-                AutoRouter.of(context).navigate(MaxLevel());
+                AutoRouter.of(context).pop();
               },
             ),
           ],
