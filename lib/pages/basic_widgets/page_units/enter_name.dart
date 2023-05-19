@@ -4,13 +4,17 @@ import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 class EnterNameWidget extends StatelessWidget {
   const EnterNameWidget({
     super.key,
+    required this.controller,
   });
+
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 30, right: 30),
       child: TextFormField(
+        controller: controller,
         cursorColor: AppColors.accentColor,
         textAlign: TextAlign.center,
         style: const TextStyle(

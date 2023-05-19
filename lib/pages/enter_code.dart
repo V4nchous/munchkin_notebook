@@ -54,7 +54,7 @@ class _EnterCodeState extends State<EnterCode> {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.enterCodeAction1,
               action: () {
-                AutoRouter.of(context).navigate(const EnterName());
+                AutoRouter.of(context).navigate(EnterName());
               },
             ),
             const SizedBox(height: 20),

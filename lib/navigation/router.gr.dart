@@ -10,6 +10,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
+import 'package:munchkin_notebook/pages/basic_widgets/page_units/choose_gender_group.dart'
+    as _i11;
 import 'package:munchkin_notebook/pages/choose_color.dart' as _i1;
 import 'package:munchkin_notebook/pages/choose_gender.dart' as _i2;
 import 'package:munchkin_notebook/pages/create_game.dart' as _i3;
@@ -25,17 +27,24 @@ abstract class $AppRouter extends _i9.RootStackRouter {
   @override
   final Map<String, _i9.PageFactory> pagesMap = {
     ChooseColor.name: (routeData) {
+      final args = routeData.argsAs<ChooseColorArgs>();
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i1.ChooseColor(),
+        child: _i1.ChooseColor(
+          key: args.key,
+          playerName: args.playerName,
+          playerGender: args.playerGender,
+        ),
       );
     },
     ChooseGender.name: (routeData) {
-      final args = routeData.argsAs<ChooseGenderArgs>(
-          orElse: () => const ChooseGenderArgs());
+      final args = routeData.argsAs<ChooseGenderArgs>();
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.ChooseGender(key: args.key),
+        child: _i2.ChooseGender(
+          key: args.key,
+          playerName: args.playerName,
+        ),
       );
     },
     CreateGame.name: (routeData) {
@@ -51,9 +60,11 @@ abstract class $AppRouter extends _i9.RootStackRouter {
       );
     },
     EnterName.name: (routeData) {
+      final args =
+          routeData.argsAs<EnterNameArgs>(orElse: () => const EnterNameArgs());
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.EnterName(),
+        child: _i5.EnterName(key: args.key),
       );
     },
     JoinGame.name: (routeData) {
@@ -81,16 +92,45 @@ abstract class $AppRouter extends _i9.RootStackRouter {
 
 /// generated route for
 /// [_i1.ChooseColor]
-class ChooseColor extends _i9.PageRouteInfo<void> {
-  const ChooseColor({List<_i9.PageRouteInfo>? children})
-      : super(
+class ChooseColor extends _i9.PageRouteInfo<ChooseColorArgs> {
+  ChooseColor({
+    _i10.Key? key,
+    required String playerName,
+    required _i11.Gender playerGender,
+    List<_i9.PageRouteInfo>? children,
+  }) : super(
           ChooseColor.name,
+          args: ChooseColorArgs(
+            key: key,
+            playerName: playerName,
+            playerGender: playerGender,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ChooseColor';
 
-  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+  static const _i9.PageInfo<ChooseColorArgs> page =
+      _i9.PageInfo<ChooseColorArgs>(name);
+}
+
+class ChooseColorArgs {
+  const ChooseColorArgs({
+    this.key,
+    required this.playerName,
+    required this.playerGender,
+  });
+
+  final _i10.Key? key;
+
+  final String playerName;
+
+  final _i11.Gender playerGender;
+
+  @override
+  String toString() {
+    return 'ChooseColorArgs{key: $key, playerName: $playerName, playerGender: $playerGender}';
+  }
 }
 
 /// generated route for
@@ -98,10 +138,14 @@ class ChooseColor extends _i9.PageRouteInfo<void> {
 class ChooseGender extends _i9.PageRouteInfo<ChooseGenderArgs> {
   ChooseGender({
     _i10.Key? key,
+    required String playerName,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           ChooseGender.name,
-          args: ChooseGenderArgs(key: key),
+          args: ChooseGenderArgs(
+            key: key,
+            playerName: playerName,
+          ),
           initialChildren: children,
         );
 
@@ -112,13 +156,18 @@ class ChooseGender extends _i9.PageRouteInfo<ChooseGenderArgs> {
 }
 
 class ChooseGenderArgs {
-  const ChooseGenderArgs({this.key});
+  const ChooseGenderArgs({
+    this.key,
+    required this.playerName,
+  });
 
   final _i10.Key? key;
 
+  final String playerName;
+
   @override
   String toString() {
-    return 'ChooseGenderArgs{key: $key}';
+    return 'ChooseGenderArgs{key: $key, playerName: $playerName}';
   }
 }
 
@@ -152,16 +201,31 @@ class EnterCode extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.EnterName]
-class EnterName extends _i9.PageRouteInfo<void> {
-  const EnterName({List<_i9.PageRouteInfo>? children})
-      : super(
+class EnterName extends _i9.PageRouteInfo<EnterNameArgs> {
+  EnterName({
+    _i10.Key? key,
+    List<_i9.PageRouteInfo>? children,
+  }) : super(
           EnterName.name,
+          args: EnterNameArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'EnterName';
 
-  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+  static const _i9.PageInfo<EnterNameArgs> page =
+      _i9.PageInfo<EnterNameArgs>(name);
+}
+
+class EnterNameArgs {
+  const EnterNameArgs({this.key});
+
+  final _i10.Key? key;
+
+  @override
+  String toString() {
+    return 'EnterNameArgs{key: $key}';
+  }
 }
 
 /// generated route for
