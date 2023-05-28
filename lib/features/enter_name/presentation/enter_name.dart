@@ -4,11 +4,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
-import 'package:munchkin_notebook/pages/basic_widgets/base_page.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/buttons.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/enter_name.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/image.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/page_units/title.dart';
+import 'package:munchkin_notebook/features/base/base_page.dart';
+import 'package:munchkin_notebook/features/base/buttons.dart';
+import 'package:munchkin_notebook/features/enter_name/enter_name_group.dart';
+import 'package:munchkin_notebook/features/base/image.dart';
+import 'package:munchkin_notebook/features/base/title.dart';
 
 @RoutePage()
 class EnterName extends StatelessWidget {

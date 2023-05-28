@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
+import 'package:munchkin_notebook/features/base/screen_scale.dart';
 
 class MyPrimaryButton extends StatelessWidget {
   const MyPrimaryButton({

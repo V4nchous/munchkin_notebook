@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
-import 'package:munchkin_notebook/pages/basic_widgets/features/screen_scale.dart';
+import 'package:munchkin_notebook/features/base/screen_scale.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class EnterCodeGroup extends StatelessWidget {
