@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:munchkin_notebook/features/game/presentation/bloc/new_game_bloc.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/ui/app_theme.dart';
 import 'navigation/router.dart';
 
 final _appRouter = AppRouter()..delegate(initialRoutes: [const CreateGame()]);
+
+final NewGameBloc gameBloc = NewGameBloc();
 
 class App extends StatelessWidget {
   const App({super.key});

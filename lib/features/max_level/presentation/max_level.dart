@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:munchkin_notebook/app.dart';
+import 'package:munchkin_notebook/features/game/presentation/bloc/new_game_bloc.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/features/base/base_page.dart';
@@ -13,8 +15,7 @@ import 'package:munchkin_notebook/features/base/title.dart';
 class MaxLevel extends StatelessWidget {
   MaxLevel({super.key});
 
-  final MaxLevelController _maxLevelController =
-      MaxLevelController(initialValue: 7);
+  final _maxLevelController = MaxLevelController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,14 @@ class MaxLevel extends StatelessWidget {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.maxLvlAction1,
               action: () {
-                AutoRouter.of(context).navigate(const SelfCounting());
+                if (gameBloc.state is GameCreated) {
+                  gameBloc.add(
+                      ChangeGameMaxLevel(_maxLevelController.getCurrentLevel));
+                  AutoRouter.of(context).navigate(const GameRoute());
+                } else {
+                  AutoRouter.of(context).navigate(SelfCounting(
+                      maxLevel: _maxLevelController.getCurrentLevel));
+                }
               },
             ),
             const SizedBox(height: 20),

@@ -13,6 +13,9 @@ class MyBackGround extends StatelessWidget {
     return Container(
       color: AppColors.accentColor,
       child: Container(
+        constraints: const BoxConstraints(
+          minWidth: double.infinity,
+        ),
         decoration: BoxDecoration(
           border: Border.all(
             width: 10,

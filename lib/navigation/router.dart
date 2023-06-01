@@ -14,6 +14,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: EnterName.page),
         AutoRoute(page: ChooseGender.page),
         AutoRoute(page: ChooseColor.page),
-        AutoRoute(page: EmptyGame.page)
+        AutoRoute(page: EmptyGame.page),
+        AutoRoute(page: GameRoute.page)
       ];
 }
