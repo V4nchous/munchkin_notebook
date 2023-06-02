@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:munchkin_notebook/features/game/domain/entities/game.dart';
 
-part 'new_game_event.dart';
-part 'new_game_state.dart';
+part 'game_event.dart';
+part 'game_state.dart';
 
-class NewGameBloc extends Bloc<NewGameEvent, NewGameState> {
+class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
   Game? game;
 
-  NewGameBloc() : super(GameNotReady()) {
-    on<NewGameEvent>((event, emit) {
-      if (event is NewGame) {
+  GameBloc() : super(GameNotReady()) {
+    on<CreateGameEvent>((event, emit) {
+      if (event is StartGame) {
         game = Game(
           maxLevel: event.maxLevel,
           isGameMaster: event.isGameMaster,

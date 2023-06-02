@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:munchkin_notebook/app.dart';
-import 'package:munchkin_notebook/features/game/presentation/bloc/new_game_bloc.dart';
+import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/features/base/base_page.dart';
@@ -45,7 +45,7 @@ class MaxLevel extends StatelessWidget {
                 if (gameBloc.state is GameCreated) {
                   gameBloc.add(
                       ChangeGameMaxLevel(_maxLevelController.getCurrentLevel));
-                  AutoRouter.of(context).navigate(const GameRoute());
+                  AutoRouter.of(context).pop();
                 } else {
                   AutoRouter.of(context).navigate(SelfCounting(
                       maxLevel: _maxLevelController.getCurrentLevel));

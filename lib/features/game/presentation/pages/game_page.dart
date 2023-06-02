@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/app.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:munchkin_notebook/features/game/presentation/bloc/new_game_bloc.dart';
+import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
 
 import 'package:munchkin_notebook/features/base/title.dart';
 import 'package:munchkin_notebook/features/base/base_page.dart';
@@ -18,7 +18,7 @@ class GamePage extends StatelessWidget {
       body: MyBasePage(
         title: const MyTitle(text: 'Игра'),
         body: Expanded(
-          child: BlocBuilder<NewGameBloc, NewGameState>(
+          child: BlocBuilder<GameBloc, CreateGameState>(
             bloc: gameBloc,
             builder: (context, state) {
               if (state is GameCreated) {

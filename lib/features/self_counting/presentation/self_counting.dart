@@ -8,7 +8,7 @@ import 'package:munchkin_notebook/features/base/buttons.dart';
 import 'package:munchkin_notebook/features/base/description.dart';
 import 'package:munchkin_notebook/features/base/image.dart';
 import 'package:munchkin_notebook/features/base/title.dart';
-import 'package:munchkin_notebook/features/game/presentation/bloc/new_game_bloc.dart';
+import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 @RoutePage()
@@ -42,7 +42,7 @@ class SelfCounting extends StatelessWidget {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.selfCountingAction1,
               action: () {
-                gameBloc.add(NewGame(maxLevel, true));
+                gameBloc.add(StartGame(maxLevel, true));
                 AutoRouter.of(context).replace(const GameRoute());
               },
             ),
@@ -50,7 +50,7 @@ class SelfCounting extends StatelessWidget {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.selfCountingAction2,
               action: () {
-                gameBloc.add(NewGame(maxLevel, false));
+                gameBloc.add(StartGame(maxLevel, false));
                 AutoRouter.of(context).replace(const GameRoute());
               },
             ),
