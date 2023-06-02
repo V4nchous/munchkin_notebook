@@ -9,6 +9,7 @@ environment:
 
 dependencies:
   auto_route: ^6.3.0
+  flutter_bloc: ^8.1.2
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -16,7 +17,6 @@ dependencies:
     sdk: flutter
   intl: any
   pin_code_fields: ^7.4.0
-
 
 dev_dependencies:
   auto_route_generator: ^6.2.0
