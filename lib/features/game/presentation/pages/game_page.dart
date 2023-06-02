@@ -7,6 +7,7 @@ import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart
 import 'package:munchkin_notebook/features/base/title.dart';
 import 'package:munchkin_notebook/features/base/base_page.dart';
 import 'package:munchkin_notebook/features/base/buttons.dart';
+import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 @RoutePage()
 class GamePage extends StatelessWidget {
@@ -40,7 +41,7 @@ class GamePage extends StatelessWidget {
         actions: MyPrimaryButton(
           text: 'Изменить максимальный уровень',
           action: () {
-            AutoRouter.of(context).pop();
+            AutoRouter.of(context).push(MaxLevel());
           },
         ),
       ),

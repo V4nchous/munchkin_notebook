@@ -43,7 +43,7 @@ class SelfCounting extends StatelessWidget {
               text: AppLocalizations.of(context)!.selfCountingAction1,
               action: () {
                 gameBloc.add(StartGame(maxLevel, true));
-                AutoRouter.of(context).replace(const GameRoute());
+                AutoRouter.of(context).replaceAll([const GameRoute()]);
               },
             ),
             const SizedBox(height: 20),
@@ -51,7 +51,7 @@ class SelfCounting extends StatelessWidget {
               text: AppLocalizations.of(context)!.selfCountingAction2,
               action: () {
                 gameBloc.add(StartGame(maxLevel, false));
-                AutoRouter.of(context).replace(const GameRoute());
+                AutoRouter.of(context).replaceAll([const GameRoute()]);
               },
             ),
             const SizedBox(height: 20),
