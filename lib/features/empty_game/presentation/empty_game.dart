@@ -6,6 +6,7 @@ import 'package:munchkin_notebook/features/base/screen_scale.dart';
 import 'package:munchkin_notebook/features/base/description.dart';
 import 'package:munchkin_notebook/features/base/image.dart';
 import 'package:munchkin_notebook/features/base/title.dart';
+import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 @RoutePage()
 class EmptyGame extends StatelessWidget {
@@ -30,10 +31,15 @@ class EmptyGame extends StatelessWidget {
             ],
           ),
         ),
-        actions: Image.asset(
-          AppLocalizations.of(context)!.emptyGameActionImagePath,
-          height: 10 * screenScale,
-          width: 40 * screenScale,
+        actions: InkWell(
+          onTap: () {
+            AutoRouter.of(context).push(const GameOptions());
+          },
+          child: Image.asset(
+            AppLocalizations.of(context)!.emptyGameActionImagePath,
+            height: 10 * screenScale,
+            width: 40 * screenScale,
+          ),
         ),
       ),
     );
