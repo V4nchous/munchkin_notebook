@@ -19,6 +19,7 @@ class EnterName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: MyBasePage(
         title: MyTitle(text: AppLocalizations.of(context)!.enterNameTitle),
         body: Expanded(

@@ -41,7 +41,7 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
       itemCount: _itemCount,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 5,
-        mainAxisSpacing: 25,
+        mainAxisSpacing: 20,
         crossAxisSpacing: 15,
       ),
       itemBuilder: (context, index) {

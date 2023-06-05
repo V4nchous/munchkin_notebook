@@ -45,8 +45,8 @@
     "gameOptionsAction1": "Вернуться  к игре",
     "gameOptionsCodeOptionImagePath": "assets/images/game_options_code_options.png",
     "gameOptionsCodeUnit": "Код игры: ",
-    "gameOptionsPlayersUnit": "Максимальный уровень: ",
-    "gameOptionsLevelUnit": "Игроков: ",
+    "gameOptionsLevelUnit": "Максимальный уровень: ",
+    "gameOptionsPlayersUnit": "Игроков: ",
     "gameOptionsIsGMUnit": "Я буду мастером игры",
     "gameOptionsNotGMUnit": "Каждый считает очки сам",
     "notCreatedGame": "Game is not created yet"
