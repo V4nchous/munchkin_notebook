@@ -18,7 +18,7 @@ class GameOptionsGroupWidget extends StatelessWidget {
           child: BlocBuilder<GameBloc, CreateGameState>(
             bloc: gameBloc,
             builder: (context, state) {
-              if (state is GameCreated && state.game.isGameMaster) {
+              if (state is GameCreated) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -37,38 +37,24 @@ class GameOptionsGroupWidget extends StatelessWidget {
                                 .gameOptionsPlayersUnit +
                             state.game.players.length.toString()),
                     const SizedBox(height: 20),
-                    Option(
-                        text:
-                            AppLocalizations.of(context)!.gameOptionsIsGMUnit),
-                  ],
-                );
-              } else if (state is GameCreated && !state.game.isGameMaster) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    GameCodeOption(
-                        text:
-                            AppLocalizations.of(context)!.gameOptionsCodeUnit +
-                                state.game.gameCode.toString()),
-                    const SizedBox(height: 20),
-                    Option(
-                        text:
-                            AppLocalizations.of(context)!.gameOptionsLevelUnit +
-                                state.game.maxLevel.toString()),
-                    const SizedBox(height: 20),
-                    Option(
-                        text: AppLocalizations.of(context)!
-                                .gameOptionsPlayersUnit +
-                            state.game.players.length.toString()),
-                    const SizedBox(height: 20),
-                    Option(
-                        text:
-                            AppLocalizations.of(context)!.gameOptionsNotGMUnit),
+                    BlocBuilder<GameBloc, CreateGameState>(
+                      bloc: gameBloc,
+                      builder: (context, state) {
+                        if (state is GameCreated && state.game.isGameMaster) {
+                          return Option(
+                              text: AppLocalizations.of(context)!
+                                  .gameOptionsIsGMUnit);
+                        } else {
+                          return Option(
+                              text: AppLocalizations.of(context)!
+                                  .gameOptionsNotGMUnit);
+                        }
+                      },
+                    ),
                   ],
                 );
               } else {
-                return const Text('Максимальный уровень:  ');
+                return Text(AppLocalizations.of(context)!.notCreatedGame);
               }
             },
           ),
