@@ -52,7 +52,7 @@ class ChooseColor extends StatelessWidget {
                       id: Random().nextInt(1000),
                       name: playerName,
                       level: 1,
-                      bonus: 1,
+                      bonus: 0,
                       gender: playerGender,
                       color: _colorController.getCurrentColor,
                     ),
