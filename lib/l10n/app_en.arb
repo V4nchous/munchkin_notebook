@@ -49,5 +49,8 @@
     "gameOptionsPlayersUnit": "Игроков: ",
     "gameOptionsIsGMUnit": "Я буду мастером игры",
     "gameOptionsNotGMUnit": "Каждый считает очки сам",
-    "notCreatedGame": "Game is not created yet"
+    "notCreatedGame": "Game is not created yet",
+    "listOfPlayersTitle": "Список игроков",
+    "listOfPlayersAction1": "Добавить игрока",
+    "listOfPlayersAction2": "Вернуться к параметрам игры"
 }
