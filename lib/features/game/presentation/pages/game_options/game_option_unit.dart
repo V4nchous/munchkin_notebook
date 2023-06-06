@@ -7,9 +7,11 @@ class Option extends StatelessWidget {
   const Option({
     super.key,
     required this.text,
+    this.action,
   });
 
   final String text;
+  final void Function()? action;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +31,13 @@ class Option extends StatelessWidget {
             ),
           ),
         ),
-        Image.asset(
-          AppLocalizations.of(context)!.emptyGameActionImagePath,
-          height: 5 * screenScale,
-          width: 20 * screenScale,
+        InkWell(
+          onTap: action,
+          child: Image.asset(
+            AppLocalizations.of(context)!.emptyGameActionImagePath,
+            height: 5 * screenScale,
+            width: 20 * screenScale,
+          ),
         ),
       ],
     );

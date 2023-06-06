@@ -31,11 +31,6 @@ class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
       }
       if (event is AddPlayer) {
         game!.players.add(event.player);
-        game = Game(
-            maxLevel: game!.maxLevel,
-            isGameMaster: game!.isGameMaster,
-            gameCode: game!.gameCode,
-            players: game!.players);
 
         emit(GameCreated(game!));
       }

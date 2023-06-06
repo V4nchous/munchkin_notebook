@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:munchkin_notebook/app.dart';
 import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
 import 'package:munchkin_notebook/features/game/presentation/pages/game_options/game_option_unit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 class GameOptionsGroupWidget extends StatelessWidget {
   const GameOptionsGroupWidget({super.key});
@@ -33,24 +35,23 @@ class GameOptionsGroupWidget extends StatelessWidget {
                                 state.game.maxLevel.toString()),
                     const SizedBox(height: 20),
                     Option(
-                        text: AppLocalizations.of(context)!
-                                .gameOptionsPlayersUnit +
-                            state.game.players.length.toString()),
-                    const SizedBox(height: 20),
-                    BlocBuilder<GameBloc, CreateGameState>(
-                      bloc: gameBloc,
-                      builder: (context, state) {
-                        if (state is GameCreated && state.game.isGameMaster) {
-                          return Option(
-                              text: AppLocalizations.of(context)!
-                                  .gameOptionsIsGMUnit);
-                        } else {
-                          return Option(
-                              text: AppLocalizations.of(context)!
-                                  .gameOptionsNotGMUnit);
-                        }
+                      text:
+                          AppLocalizations.of(context)!.gameOptionsPlayersUnit +
+                              state.game.players.length.toString(),
+                      action: () {
+                        AutoRouter.of(context).push(EnterName());
                       },
                     ),
+                    const SizedBox(height: 20),
+                    (state.game.isGameMaster)
+                        ? Option(
+                            text: AppLocalizations.of(context)!
+                                .gameOptionsIsGMUnit,
+                          )
+                        : Option(
+                            text: AppLocalizations.of(context)!
+                                .gameOptionsNotGMUnit,
+                          ),
                   ],
                 );
               } else {
