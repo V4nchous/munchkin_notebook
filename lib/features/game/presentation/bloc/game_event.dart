@@ -1,6 +1,5 @@
 part of 'game_bloc.dart';
 
-@immutable
 abstract class CreateGameEvent {}
 
 class StartGame extends CreateGameEvent {
@@ -14,4 +13,10 @@ class ChangeGameMaxLevel extends CreateGameEvent {
   final int maxLevel;
 
   ChangeGameMaxLevel(this.maxLevel);
+}
+
+class AddPlayer extends CreateGameEvent {
+  final Player player;
+
+  AddPlayer(this.player);
 }

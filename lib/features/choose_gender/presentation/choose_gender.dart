@@ -42,7 +42,7 @@ class ChooseGender extends StatelessWidget {
           MyPrimaryButton(
             text: AppLocalizations.of(context)!.chooseGenderAction1,
             action: () {
-              AutoRouter.of(context).navigate(ChooseColor(
+              AutoRouter.of(context).push(ChooseColor(
                   playerName: playerName,
                   playerGender: _opacityController.getCurrentGender));
             },
@@ -51,7 +51,7 @@ class ChooseGender extends StatelessWidget {
           MySecondaryButton(
             text: AppLocalizations.of(context)!.chooseGenderAction2,
             action: () {
-              AutoRouter.of(context).navigate(EnterName());
+              AutoRouter.of(context).pop();
             },
           ),
         ]),

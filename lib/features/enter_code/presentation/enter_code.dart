@@ -54,14 +54,14 @@ class _EnterCodeState extends State<EnterCode> {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.enterCodeAction1,
               action: () {
-                AutoRouter.of(context).navigate(EnterName());
+                AutoRouter.of(context).push(EnterName());
               },
             ),
             const SizedBox(height: 20),
             MySecondaryButton(
               text: AppLocalizations.of(context)!.enterCodeAction2,
               action: () {
-                AutoRouter.of(context).navigate(const CreateGame());
+                AutoRouter.of(context).push(const CreateGame());
               },
             )
           ],

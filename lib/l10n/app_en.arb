@@ -40,5 +40,14 @@
     "emptyGameTitle": "Игра",
     "emptyGameImagePath": "assets/images/rectangle.png",
     "emptyGameDescribtion": "Шагать по просторам и заглядывать в пещеры вместе - веселее, чем одному. А ещё - значительно безопаснее. Добавь новых игроков в параметрах игры с помощью кнопки внизу экрана. Если у твоих друзей тоже установлено это приложение - они смогут самостоятельно присоединиться к тебе, введя код игры.",
-    "emptyGameActionImagePath": "assets/images/ellipsis.png"
+    "emptyGameActionImagePath": "assets/images/ellipsis.png",
+    "gameOptionsTitle": "Параметры игры",
+    "gameOptionsAction1": "Вернуться  к игре",
+    "gameOptionsCodeOptionImagePath": "assets/images/game_options_code_options.png",
+    "gameOptionsCodeUnit": "Код игры: ",
+    "gameOptionsLevelUnit": "Максимальный уровень: ",
+    "gameOptionsPlayersUnit": "Игроков: ",
+    "gameOptionsIsGMUnit": "Я буду мастером игры",
+    "gameOptionsNotGMUnit": "Каждый считает очки сам",
+    "notCreatedGame": "Game is not created yet"
 }

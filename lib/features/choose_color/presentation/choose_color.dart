@@ -1,6 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:munchkin_notebook/app.dart';
+import 'package:munchkin_notebook/features/game/domain/entities/player.dart';
+import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 import 'package:munchkin_notebook/features/base/base_page.dart';
@@ -41,7 +46,19 @@ class ChooseColor extends StatelessWidget {
             MyPrimaryButton(
               text: AppLocalizations.of(context)!.chooseColorAction1,
               action: () {
-                AutoRouter.of(context).navigate(const EmptyGame());
+                gameBloc.add(
+                  AddPlayer(
+                    Player(
+                      id: Random().nextInt(1000),
+                      name: playerName,
+                      level: 1,
+                      bonus: 0,
+                      gender: playerGender,
+                      color: _colorController.getCurrentColor,
+                    ),
+                  ),
+                );
+                AutoRouter.of(context).push(const EmptyGame());
               },
             ),
             const SizedBox(height: 20),

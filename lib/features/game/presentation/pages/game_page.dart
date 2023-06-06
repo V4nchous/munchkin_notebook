@@ -41,7 +41,7 @@ class GamePage extends StatelessWidget {
         actions: MyPrimaryButton(
           text: 'Изменить максимальный уровень',
           action: () {
-            AutoRouter.of(context).push(MaxLevel());
+            AutoRouter.of(context).push(const GameOptions());
           },
         ),
       ),
