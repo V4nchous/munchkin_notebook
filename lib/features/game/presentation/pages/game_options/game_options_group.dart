@@ -39,7 +39,7 @@ class GameOptionsGroupWidget extends StatelessWidget {
                           AppLocalizations.of(context)!.gameOptionsPlayersUnit +
                               state.game.players.length.toString(),
                       action: () {
-                        AutoRouter.of(context).push(EnterName());
+                        AutoRouter.of(context).push(const ListOfPlayers());
                       },
                     ),
                     const SizedBox(height: 20),
