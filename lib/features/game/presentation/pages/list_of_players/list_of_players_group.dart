@@ -14,13 +14,7 @@ class ListOfPlayersGroup extends StatelessWidget {
           constraints: const BoxConstraints(minWidth: double.infinity),
           child: BlocBuilder<GameBloc, CreateGameState>(
             builder: (context, state) {
-              return const Column(
-                children: [
-                  Row(
-                    children: [],
-                  )
-                ],
-              );
+              return ListView();
             },
           ),
         ),
