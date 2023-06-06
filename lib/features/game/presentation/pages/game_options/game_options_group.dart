@@ -43,15 +43,11 @@ class GameOptionsGroupWidget extends StatelessWidget {
                       },
                     ),
                     const SizedBox(height: 20),
-                    (state.game.isGameMaster)
-                        ? Option(
-                            text: AppLocalizations.of(context)!
-                                .gameOptionsIsGMUnit,
-                          )
-                        : Option(
-                            text: AppLocalizations.of(context)!
-                                .gameOptionsNotGMUnit,
-                          ),
+                    Option(
+                        text: (state.game.isGameMaster)
+                            ? AppLocalizations.of(context)!.gameOptionsIsGMUnit
+                            : AppLocalizations.of(context)!
+                                .gameOptionsNotGMUnit),
                   ],
                 );
               } else {
