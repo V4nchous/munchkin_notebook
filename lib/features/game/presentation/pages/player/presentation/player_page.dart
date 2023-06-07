@@ -133,12 +133,11 @@ class PlayerStatLabel extends StatelessWidget {
     return Text(
       label,
       style: TextStyle(
-        color: AppColors.accentColor,
-        fontSize: 30 * screenScale,
-        height: 1.1,
-        fontWeight: FontWeight.w700,
-        fontFamily: 'academy',
-      ),
+          color: AppColors.accentColor,
+          fontSize: 30 * screenScale,
+          height: 1.1,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'academy'),
     );
   }
 }
