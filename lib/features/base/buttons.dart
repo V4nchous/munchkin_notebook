@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
 import 'package:munchkin_notebook/features/base/screen_scale.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyPrimaryButton extends StatelessWidget {
   const MyPrimaryButton({
@@ -57,6 +58,50 @@ class MySecondaryButton extends StatelessWidget {
           fontWeight: FontWeight.w400,
           fontFamily: 'academy',
         ),
+      ),
+    );
+  }
+}
+
+class LeftArrowButton extends StatelessWidget {
+  const LeftArrowButton({
+    super.key,
+    required this.action,
+  });
+
+  final void Function()? action;
+
+  @override
+  Widget build(BuildContext context) {
+    double screenScale = getScreenScale(context);
+
+    return InkWell(
+      onTap: action,
+      child: SizedBox(
+        height: 30 * screenScale,
+        child: Image.asset(AppLocalizations.of(context)!.leftArrowImagePath),
+      ),
+    );
+  }
+}
+
+class RightArrowButton extends StatelessWidget {
+  const RightArrowButton({
+    super.key,
+    required this.action,
+  });
+
+  final void Function()? action;
+
+  @override
+  Widget build(BuildContext context) {
+    double screenScale = getScreenScale(context);
+
+    return InkWell(
+      onTap: action,
+      child: SizedBox(
+        height: 30 * screenScale,
+        child: Image.asset(AppLocalizations.of(context)!.rightArrowImagePath),
       ),
     );
   }

@@ -55,5 +55,10 @@
     "notCreatedGame": "Game is not created yet",
     "listOfPlayersTitle": "Список игроков",
     "listOfPlayersAction1": "Добавить игрока",
-    "listOfPlayersAction2": "Вернуться к параметрам игры"
+    "listOfPlayersAction2": "Вернуться к параметрам игры",
+    "leftArrowImagePath": "assets/images/arrow_left_max_lvl.png",
+    "rightArrowImagePath": "assets/images/arrow_right_max_lvl.png",
+    "playerPageLevelStat": "Уровень",
+    "playerPageBonusStat": "Бонусы",
+    "playerPagePowerStat": "Сила"
 }

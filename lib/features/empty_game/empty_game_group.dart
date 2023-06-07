@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:munchkin_notebook/app.dart';
@@ -7,6 +8,7 @@ import 'package:munchkin_notebook/features/base/image.dart';
 import 'package:munchkin_notebook/features/base/screen_scale.dart';
 import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 class EmptyGameGroup extends StatelessWidget {
   const EmptyGameGroup({
@@ -70,10 +72,17 @@ class EmptyGameGroup extends StatelessWidget {
                           )
                         ],
                       )),
-                      Image.asset(
-                        AppLocalizations.of(context)!.emptyGameActionImagePath,
-                        height: 5 * screenScale,
-                        width: 20 * screenScale,
+                      InkWell(
+                        onTap: () {
+                          AutoRouter.of(context)
+                              .push(PlayerRoute(index: index));
+                        },
+                        child: Image.asset(
+                          AppLocalizations.of(context)!
+                              .emptyGameActionImagePath,
+                          height: 5 * screenScale,
+                          width: 20 * screenScale,
+                        ),
                       )
                     ],
                   );
