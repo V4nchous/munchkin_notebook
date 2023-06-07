@@ -30,53 +30,23 @@ class PlayerPage extends StatelessWidget {
               body: Expanded(
                 child: Column(
                   children: [
-                    PlayerStatLabel(
+                    StatUnit(
+                        index: index,
                         label:
-                            AppLocalizations.of(context)!.playerPageLevelStat),
-                    const SizedBox(height: 10),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        LeftArrowButton(
-                          action: () {
-                            gameBloc.add(DecrementPlayerLevel(index));
-                          },
-                        ),
-                        PlayerStatBody(
-                            index: index,
-                            playerStatValue:
-                                state.game.players[index].level.toString(),
-                            statImagePath: AppLocalizations.of(context)!
-                                .emptyGameLevelImagePath),
-                        RightArrowButton(action: () {
-                          gameBloc.add(IncrementPlayerLevel(index));
-                        }),
-                      ],
-                    ),
+                            AppLocalizations.of(context)!.playerPageLevelStat,
+                        playerStatValue:
+                            state.game.players[index].level.toString(),
+                        statImagePath: AppLocalizations.of(context)!
+                            .emptyGameLevelImagePath),
                     const SizedBox(height: 40),
-                    PlayerStatLabel(
+                    StatUnit(
+                        index: index,
                         label:
-                            AppLocalizations.of(context)!.playerPageBonusStat),
-                    const SizedBox(height: 10),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        LeftArrowButton(action: () {
-                          gameBloc.add(DecrementPlayerBonus(index));
-                        }),
-                        PlayerStatBody(
-                            index: index,
-                            playerStatValue:
-                                state.game.players[index].bonus.toString(),
-                            statImagePath: AppLocalizations.of(context)!
-                                .emptyGameBonusImagePath),
-                        RightArrowButton(action: () {
-                          gameBloc.add(IncrementPlayerBonus(index));
-                        }),
-                      ],
-                    ),
+                            AppLocalizations.of(context)!.playerPageBonusStat,
+                        playerStatValue:
+                            state.game.players[index].bonus.toString(),
+                        statImagePath: AppLocalizations.of(context)!
+                            .emptyGameBonusImagePath),
                     const SizedBox(height: 40),
                     PlayerStatLabel(
                         label:
@@ -171,6 +141,49 @@ class PlayerStatLabel extends StatelessWidget {
         fontWeight: FontWeight.w700,
         fontFamily: 'academy',
       ),
+    );
+  }
+}
+
+class StatUnit extends StatelessWidget {
+  const StatUnit({
+    super.key,
+    required this.index,
+    required this.label,
+    required this.playerStatValue,
+    required this.statImagePath,
+  });
+
+  final int index;
+  final String label;
+  final String statImagePath;
+  final String playerStatValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        PlayerStatLabel(label: label),
+        const SizedBox(height: 10),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            LeftArrowButton(
+              action: () {
+                gameBloc.add(DecrementPlayerLevel(index));
+              },
+            ),
+            PlayerStatBody(
+                index: index,
+                playerStatValue: playerStatValue,
+                statImagePath: statImagePath),
+            RightArrowButton(action: () {
+              gameBloc.add(IncrementPlayerLevel(index));
+            }),
+          ],
+        )
+      ],
     );
   }
 }
