@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/features/base/base_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:munchkin_notebook/features/base/screen_scale.dart';
-import 'package:munchkin_notebook/features/base/description.dart';
-import 'package:munchkin_notebook/features/base/image.dart';
 import 'package:munchkin_notebook/features/base/title.dart';
+import 'package:munchkin_notebook/features/empty_game/empty_game_group.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 @RoutePage()
@@ -19,18 +18,7 @@ class EmptyGame extends StatelessWidget {
     return Scaffold(
       body: MyBasePage(
         title: MyTitle(text: AppLocalizations.of(context)!.emptyGameTitle),
-        body: Expanded(
-          child: Column(
-            children: [
-              MyImage(path: AppLocalizations.of(context)!.emptyGameImagePath),
-              const SizedBox(height: 20),
-              Expanded(
-                child: MyDescription(
-                    text: AppLocalizations.of(context)!.emptyGameDescribtion),
-              ),
-            ],
-          ),
-        ),
+        body: const EmptyGameGroup(),
         actions: InkWell(
           onTap: () {
             AutoRouter.of(context).push(const GameOptions());
