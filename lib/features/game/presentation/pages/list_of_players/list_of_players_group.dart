@@ -27,7 +27,8 @@ class ListOfPlayersGroup extends StatelessWidget {
                   return Option(
                     text: state.game.players[index].name,
                     action: () {
-                      AutoRouter.of(context).push(PlayerRoute(index: index));
+                      AutoRouter.of(context).push(
+                          PlayerRoute(playerID: state.game.players[index].id));
                     },
                   );
                 },

@@ -12,9 +12,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class PlayerPage extends StatelessWidget {
-  const PlayerPage({super.key, required this.index});
+  const PlayerPage({super.key, required this.playerID});
 
-  final int index;
+  final int playerID;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,8 @@ class PlayerPage extends StatelessWidget {
         bloc: gameBloc,
         builder: (context, state) {
           if (state is GameCreated) {
+            int index = state.game.players
+                .indexWhere((player) => player.id == playerID);
             return MyBasePage(
               title: MyTitle(text: state.game.players[index].name),
               body: Expanded(

@@ -139,7 +139,7 @@ abstract class $AppRouter extends _i14.RootStackRouter {
         routeData: routeData,
         child: _i13.PlayerPage(
           key: args.key,
-          index: args.index,
+          playerID: args.playerID,
         ),
       );
     },
@@ -426,13 +426,13 @@ class ListOfPlayers extends _i14.PageRouteInfo<void> {
 class PlayerRoute extends _i14.PageRouteInfo<PlayerRouteArgs> {
   PlayerRoute({
     _i15.Key? key,
-    required int index,
+    required int playerID,
     List<_i14.PageRouteInfo>? children,
   }) : super(
           PlayerRoute.name,
           args: PlayerRouteArgs(
             key: key,
-            index: index,
+            playerID: playerID,
           ),
           initialChildren: children,
         );
@@ -446,15 +446,15 @@ class PlayerRoute extends _i14.PageRouteInfo<PlayerRouteArgs> {
 class PlayerRouteArgs {
   const PlayerRouteArgs({
     this.key,
-    required this.index,
+    required this.playerID,
   });
 
   final _i15.Key? key;
 
-  final int index;
+  final int playerID;
 
   @override
   String toString() {
-    return 'PlayerRouteArgs{key: $key, index: $index}';
+    return 'PlayerRouteArgs{key: $key, playerID: $playerID}';
   }
 }

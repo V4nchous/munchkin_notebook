@@ -74,8 +74,8 @@ class EmptyGameGroup extends StatelessWidget {
                       )),
                       InkWell(
                         onTap: () {
-                          AutoRouter.of(context)
-                              .push(PlayerRoute(index: index));
+                          AutoRouter.of(context).push(PlayerRoute(
+                              playerID: state.game.players[index].id));
                         },
                         child: Image.asset(
                           AppLocalizations.of(context)!
