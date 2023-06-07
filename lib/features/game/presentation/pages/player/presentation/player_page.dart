@@ -7,6 +7,7 @@ import 'package:munchkin_notebook/features/base/base_page.dart';
 import 'package:munchkin_notebook/features/base/buttons.dart';
 import 'package:munchkin_notebook/features/base/screen_scale.dart';
 import 'package:munchkin_notebook/features/base/title.dart';
+import 'package:munchkin_notebook/features/game/domain/entities/player.dart';
 import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -23,28 +24,26 @@ class PlayerPage extends StatelessWidget {
         bloc: gameBloc,
         builder: (context, state) {
           if (state is GameCreated) {
-            int index = state.game.players
-                .indexWhere((player) => player.id == playerID);
+            Player player = state.game.players
+                .firstWhere((player) => player.id == playerID);
             return MyBasePage(
-              title: MyTitle(text: state.game.players[index].name),
+              title: MyTitle(text: player.name),
               body: Expanded(
                 child: Column(
                   children: [
                     StatUnit(
-                        index: index,
+                        player: player,
                         label:
                             AppLocalizations.of(context)!.playerPageLevelStat,
-                        playerStatValue:
-                            state.game.players[index].level.toString(),
+                        playerStatValue: player.level.toString(),
                         statImagePath: AppLocalizations.of(context)!
                             .emptyGameLevelImagePath),
                     const SizedBox(height: 40),
                     StatUnit(
-                        index: index,
+                        player: player,
                         label:
                             AppLocalizations.of(context)!.playerPageBonusStat,
-                        playerStatValue:
-                            state.game.players[index].bonus.toString(),
+                        playerStatValue: player.bonus.toString(),
                         statImagePath: AppLocalizations.of(context)!
                             .emptyGameBonusImagePath),
                     const SizedBox(height: 40),
@@ -53,10 +52,9 @@ class PlayerPage extends StatelessWidget {
                             AppLocalizations.of(context)!.playerPagePowerStat),
                     const SizedBox(height: 10),
                     PlayerStatBody(
-                        index: index,
-                        playerStatValue: (state.game.players[index].level +
-                                state.game.players[index].bonus)
-                            .toString(),
+                        player: player,
+                        playerStatValue:
+                            (player.level + player.bonus).toString(),
                         statImagePath: AppLocalizations.of(context)!
                             .emptyGamePowerImagePath),
                   ],
@@ -81,12 +79,12 @@ class PlayerPage extends StatelessWidget {
 class PlayerStatBody extends StatelessWidget {
   const PlayerStatBody({
     super.key,
-    required this.index,
+    required this.player,
     required this.playerStatValue,
     required this.statImagePath,
   });
 
-  final int index;
+  final Player player;
   final String statImagePath;
   final String playerStatValue;
 
@@ -148,13 +146,13 @@ class PlayerStatLabel extends StatelessWidget {
 class StatUnit extends StatelessWidget {
   const StatUnit({
     super.key,
-    required this.index,
+    required this.player,
     required this.label,
     required this.playerStatValue,
     required this.statImagePath,
   });
 
-  final int index;
+  final Player player;
   final String label;
   final String statImagePath;
   final String playerStatValue;
@@ -171,15 +169,24 @@ class StatUnit extends StatelessWidget {
           children: [
             LeftArrowButton(
               action: () {
-                gameBloc.add(DecrementPlayerLevel(index));
+                if (label ==
+                    AppLocalizations.of(context)!.playerPageLevelStat) {
+                  gameBloc.add(DecrementPlayerLevel(player));
+                } else {
+                  gameBloc.add(DecrementPlayerBonus(player));
+                }
               },
             ),
             PlayerStatBody(
-                index: index,
+                player: player,
                 playerStatValue: playerStatValue,
                 statImagePath: statImagePath),
             RightArrowButton(action: () {
-              gameBloc.add(IncrementPlayerLevel(index));
+              if (label == AppLocalizations.of(context)!.playerPageLevelStat) {
+                gameBloc.add(IncrementPlayerLevel(player));
+              } else {
+                gameBloc.add(IncrementPlayerBonus(player));
+              }
             }),
           ],
         )

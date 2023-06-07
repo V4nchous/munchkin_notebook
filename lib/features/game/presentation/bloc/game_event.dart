@@ -16,27 +16,27 @@ class ChangeGameMaxLevel extends CreateGameEvent {
 }
 
 class DecrementPlayerLevel extends CreateGameEvent {
-  final int index;
+  final Player player;
 
-  DecrementPlayerLevel(this.index);
+  DecrementPlayerLevel(this.player);
 }
 
 class IncrementPlayerLevel extends CreateGameEvent {
-  final int index;
+  final Player player;
 
-  IncrementPlayerLevel(this.index);
+  IncrementPlayerLevel(this.player);
 }
 
 class DecrementPlayerBonus extends CreateGameEvent {
-  final int index;
+  final Player player;
 
-  DecrementPlayerBonus(this.index);
+  DecrementPlayerBonus(this.player);
 }
 
 class IncrementPlayerBonus extends CreateGameEvent {
-  final int index;
+  final Player player;
 
-  IncrementPlayerBonus(this.index);
+  IncrementPlayerBonus(this.player);
 }
 
 class AddPlayer extends CreateGameEvent {
