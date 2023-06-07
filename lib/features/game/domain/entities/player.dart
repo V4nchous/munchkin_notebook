@@ -17,6 +17,4 @@ class Player {
     required this.gender,
     required this.color,
   });
-
-  String get getPlayerName => name;
 }
