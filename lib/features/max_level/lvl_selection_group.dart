@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
+import 'package:munchkin_notebook/features/base/buttons.dart';
 import 'package:munchkin_notebook/features/base/screen_scale.dart';
 
 class LvlSelectionGroup extends StatefulWidget {
@@ -36,15 +37,9 @@ class _LvlSelectionGroupState extends State<LvlSelectionGroup> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        InkWell(
-          onTap: () {
-            widget.controller.decrementLevel();
-          },
-          child: SizedBox(
-            height: 30 * screenScale,
-            child: Image.asset('assets/images/arrow_left_max_lvl.png'),
-          ),
-        ),
+        LeftArrowButton(action: () {
+          widget.controller.decrementLevel();
+        }),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
@@ -57,15 +52,9 @@ class _LvlSelectionGroupState extends State<LvlSelectionGroup> {
             ),
           ),
         ),
-        InkWell(
-          onTap: () {
-            widget.controller.incrementLevel();
-          },
-          child: SizedBox(
-            height: 30 * screenScale,
-            child: Image.asset('assets/images/arrow_right_max_lvl.png'),
-          ),
-        ),
+        RightArrowButton(action: () {
+          widget.controller.incrementLevel();
+        }),
       ],
     );
   }

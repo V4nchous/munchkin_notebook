@@ -34,6 +34,33 @@ class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
 
         emit(GameCreated(game!));
       }
+      if (event is DecrementPlayerLevel) {
+        if (event.player.level > 1) {
+          event.player.level--;
+        }
+
+        emit(GameCreated(game!));
+      }
+      if (event is IncrementPlayerLevel) {
+        if (event.player.level < game!.maxLevel) {
+          event.player.level++;
+        }
+
+        emit(GameCreated(game!));
+      }
+
+      if (event is DecrementPlayerBonus) {
+        if (event.player.bonus > 0) {
+          event.player.bonus--;
+        }
+
+        emit(GameCreated(game!));
+      }
+      if (event is IncrementPlayerBonus) {
+        event.player.bonus++;
+
+        emit(GameCreated(game!));
+      }
     });
   }
 }
