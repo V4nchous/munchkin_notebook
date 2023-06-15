@@ -39,71 +39,68 @@ class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
       }
       if (event is DecrementPlayerLevel) {
         if (event.player.level > 1) {
-          int newLevel = event.player.level - 1;
           List<Player> newPlayers = List.from(_game!.players);
-          newPlayers.removeWhere((player) => player.id == event.player.id);
-          newPlayers.add(Player(
+          final index =
+              newPlayers.indexWhere((player) => player.id == event.player.id);
+          newPlayers[index] = Player(
             id: event.player.id,
             name: event.player.name,
-            level: newLevel,
+            level: event.player.level - 1,
             bonus: event.player.bonus,
             gender: event.player.gender,
             color: event.player.color,
-          ));
+          );
           _game = _game!.copyWith(players: newPlayers);
         }
-
         emit(GameCreated(_game!));
       }
       if (event is IncrementPlayerLevel) {
         if (event.player.level < _game!.maxLevel) {
-          int newLevel = event.player.level + 1;
           List<Player> newPlayers = List.from(_game!.players);
-          newPlayers.removeWhere((player) => player.id == event.player.id);
-          newPlayers.add(Player(
+          final index =
+              newPlayers.indexWhere((player) => player.id == event.player.id);
+          newPlayers[index] = Player(
             id: event.player.id,
             name: event.player.name,
-            level: newLevel,
+            level: event.player.level + 1,
             bonus: event.player.bonus,
             gender: event.player.gender,
             color: event.player.color,
-          ));
+          );
           _game = _game!.copyWith(players: newPlayers);
         }
-
         emit(GameCreated(_game!));
       }
 
       if (event is DecrementPlayerBonus) {
         if (event.player.bonus > 0) {
-          int newBonus = event.player.bonus - 1;
           List<Player> newPlayers = List.from(_game!.players);
-          newPlayers.removeWhere((player) => player.id == event.player.id);
-          newPlayers.add(Player(
+          final index =
+              newPlayers.indexWhere((player) => player.id == event.player.id);
+          newPlayers[index] = Player(
             id: event.player.id,
             name: event.player.name,
             level: event.player.level,
-            bonus: newBonus,
+            bonus: event.player.bonus - 1,
             gender: event.player.gender,
             color: event.player.color,
-          ));
+          );
           _game = _game!.copyWith(players: newPlayers);
         }
-
         emit(GameCreated(_game!));
       }
       if (event is IncrementPlayerBonus) {
-        int newBonus = event.player.bonus + 1;
         List<Player> newPlayers = List.from(_game!.players);
-        newPlayers.removeWhere((player) => player.id == event.player.id);
-        newPlayers.add(Player(
+        final index =
+            newPlayers.indexWhere((player) => player.id == event.player.id);
+        newPlayers[index] = Player(
           id: event.player.id,
           name: event.player.name,
           level: event.player.level,
-          bonus: newBonus,
+          bonus: event.player.bonus + 1,
           gender: event.player.gender,
           color: event.player.color,
-        ));
+        );
         _game = _game!.copyWith(players: newPlayers);
       }
       emit(GameCreated(_game!));
