@@ -39,14 +39,36 @@ class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
       }
       if (event is DecrementPlayerLevel) {
         if (event.player.level > 1) {
-          event.player.level--;
+          int newLevel = event.player.level - 1;
+          List<Player> newPlayers = List.from(_game!.players);
+          newPlayers.removeWhere((player) => player.id == event.player.id);
+          newPlayers.add(Player(
+            id: event.player.id,
+            name: event.player.name,
+            level: newLevel,
+            bonus: event.player.bonus,
+            gender: event.player.gender,
+            color: event.player.color,
+          ));
+          _game = _game!.copyWith(players: newPlayers);
         }
 
         emit(GameCreated(_game!));
       }
       if (event is IncrementPlayerLevel) {
         if (event.player.level < _game!.maxLevel) {
-          event.player.level++;
+          int newLevel = event.player.level + 1;
+          List<Player> newPlayers = List.from(_game!.players);
+          newPlayers.removeWhere((player) => player.id == event.player.id);
+          newPlayers.add(Player(
+            id: event.player.id,
+            name: event.player.name,
+            level: newLevel,
+            bonus: event.player.bonus,
+            gender: event.player.gender,
+            color: event.player.color,
+          ));
+          _game = _game!.copyWith(players: newPlayers);
         }
 
         emit(GameCreated(_game!));
@@ -54,16 +76,37 @@ class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
 
       if (event is DecrementPlayerBonus) {
         if (event.player.bonus > 0) {
-          event.player.bonus--;
+          int newBonus = event.player.bonus - 1;
+          List<Player> newPlayers = List.from(_game!.players);
+          newPlayers.removeWhere((player) => player.id == event.player.id);
+          newPlayers.add(Player(
+            id: event.player.id,
+            name: event.player.name,
+            level: event.player.level,
+            bonus: newBonus,
+            gender: event.player.gender,
+            color: event.player.color,
+          ));
+          _game = _game!.copyWith(players: newPlayers);
         }
 
         emit(GameCreated(_game!));
       }
       if (event is IncrementPlayerBonus) {
-        event.player.bonus++;
-
-        emit(GameCreated(_game!));
+        int newBonus = event.player.bonus + 1;
+        List<Player> newPlayers = List.from(_game!.players);
+        newPlayers.removeWhere((player) => player.id == event.player.id);
+        newPlayers.add(Player(
+          id: event.player.id,
+          name: event.player.name,
+          level: event.player.level,
+          bonus: newBonus,
+          gender: event.player.gender,
+          color: event.player.color,
+        ));
+        _game = _game!.copyWith(players: newPlayers);
       }
+      emit(GameCreated(_game!));
     });
   }
 }

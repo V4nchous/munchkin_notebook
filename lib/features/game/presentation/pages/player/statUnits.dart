@@ -55,7 +55,7 @@ class BonusUnit extends StatelessWidget {
     return Column(
       children: [
         PlayerStatLabel(
-            label: AppLocalizations.of(context)!.playerPageLevelStat),
+            label: AppLocalizations.of(context)!.playerPageBonusStat),
         const SizedBox(height: 10),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
