@@ -31,7 +31,9 @@ class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
         emit(GameCreated(_game!));
       }
       if (event is AddPlayer) {
-        _game!.players.add(event.player);
+        List<Player> newPlayers = List.from(_game!.players);
+        newPlayers.add(event.player);
+        _game = _game!.copyWith(players: newPlayers);
 
         emit(GameCreated(_game!));
       }
