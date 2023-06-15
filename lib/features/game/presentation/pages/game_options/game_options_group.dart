@@ -30,9 +30,12 @@ class GameOptionsGroupWidget extends StatelessWidget {
                                 state.game.gameCode.toString()),
                     const SizedBox(height: 20),
                     Option(
-                        text:
-                            AppLocalizations.of(context)!.gameOptionsLevelUnit +
-                                state.game.maxLevel.toString()),
+                      text: AppLocalizations.of(context)!.gameOptionsLevelUnit +
+                          state.game.maxLevel.toString(),
+                      action: () {
+                        AutoRouter.of(context).push(MaxLevel());
+                      },
+                    ),
                     const SizedBox(height: 20),
                     Option(
                       text:
