@@ -21,6 +21,7 @@ class _LvlSelectionGroupState extends State<LvlSelectionGroup> {
   @override
   void initState() {
     _currentLevel = widget.controller.getCurrentLevel;
+
     widget.controller.setLevelListener((level) {
       setState(() {
         _currentLevel = level;

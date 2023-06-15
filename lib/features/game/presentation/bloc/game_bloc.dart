@@ -25,9 +25,10 @@ class GameBloc extends Bloc<CreateGameEvent, CreateGameState> {
       }
       if (event is ChangeGameMaxLevel) {
         if (_game != null) {
-          _game?.maxLevel = event.maxLevel;
-          emit(GameCreated(_game!));
+          _game = _game!.copyWith(maxLevel: event.maxLevel);
         }
+
+        emit(GameCreated(_game!));
       }
       if (event is AddPlayer) {
         _game!.players.add(event.player);
