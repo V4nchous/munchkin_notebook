@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:munchkin_notebook/features/create_game/presentation/create_game.dart';
+import 'package:munchkin_notebook/features/create_game/presentation/pages/create_game.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

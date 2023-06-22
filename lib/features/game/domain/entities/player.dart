@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:munchkin_notebook/features/choose_gender/choose_gender_group.dart';
+import 'package:munchkin_notebook/features/choose_gender/presentation/widgets/choose_gender_group.dart';
 
 class Player {
   final int id;
