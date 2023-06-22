@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:munchkin_notebook/app.dart';
 import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
-import 'package:munchkin_notebook/features/game/presentation/pages/game_options/game_option_unit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:munchkin_notebook/features/game/presentation/pages/game_options/presentation/widgets/game_option_unit.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 
 class ListOfPlayersGroup extends StatelessWidget {

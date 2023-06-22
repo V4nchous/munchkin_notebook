@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:munchkin_notebook/features/base/background.dart';
+import 'package:munchkin_notebook/core/ui/widgets/background.dart';
 
 class MyBasePage extends StatelessWidget {
   const MyBasePage({
