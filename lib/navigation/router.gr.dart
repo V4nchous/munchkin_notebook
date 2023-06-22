@@ -10,31 +10,31 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i13;
 import 'package:flutter/material.dart' as _i14;
-import 'package:munchkin_notebook/features/choose_color/presentation/choose_color.dart'
+import 'package:munchkin_notebook/features/choose_color/presentation/pages/choose_color.dart'
     as _i4;
-import 'package:munchkin_notebook/features/choose_gender/choose_gender_group.dart'
+import 'package:munchkin_notebook/features/choose_gender/presentation/widgets/choose_gender_group.dart'
     as _i15;
-import 'package:munchkin_notebook/features/choose_gender/presentation/choose_gender.dart'
+import 'package:munchkin_notebook/features/choose_gender/presentation/pages/choose_gender.dart'
     as _i9;
-import 'package:munchkin_notebook/features/create_game/presentation/create_game.dart'
+import 'package:munchkin_notebook/features/create_game/presentation/pages/create_game.dart'
     as _i1;
-import 'package:munchkin_notebook/features/empty_game/presentation/empty_game.dart'
+import 'package:munchkin_notebook/features/empty_game/presentation/pages/empty_game.dart'
     as _i10;
-import 'package:munchkin_notebook/features/enter_code/presentation/enter_code.dart'
+import 'package:munchkin_notebook/features/enter_code/presentation/pages/enter_code.dart'
     as _i2;
-import 'package:munchkin_notebook/features/enter_name/presentation/enter_name.dart'
+import 'package:munchkin_notebook/features/enter_name/presentation/pages/enter_name.dart'
     as _i11;
-import 'package:munchkin_notebook/features/game/presentation/pages/game_options/presentation/game_options.dart'
+import 'package:munchkin_notebook/features/game/presentation/pages/game_options/presentation/pages/game_options.dart'
     as _i6;
-import 'package:munchkin_notebook/features/game/presentation/pages/list_of_players/presentation/list_of_players.dart'
+import 'package:munchkin_notebook/features/game/presentation/pages/list_of_players/presentation/pages/list_of_players.dart'
     as _i7;
-import 'package:munchkin_notebook/features/game/presentation/pages/player/presentation/player_page.dart'
+import 'package:munchkin_notebook/features/game/presentation/pages/player/presentation/pages/player_page.dart'
     as _i8;
-import 'package:munchkin_notebook/features/join_game/presentation/join_game.dart'
+import 'package:munchkin_notebook/features/join_game/presentation/pages/join_game.dart'
     as _i5;
-import 'package:munchkin_notebook/features/max_level/presentation/max_level.dart'
+import 'package:munchkin_notebook/features/max_level/presentation/pages/max_level.dart'
     as _i12;
-import 'package:munchkin_notebook/features/self_counting/presentation/self_counting.dart'
+import 'package:munchkin_notebook/features/self_counting/presentation/pages/self_counting.dart'
     as _i3;
 
 abstract class $AppRouter extends _i13.RootStackRouter {
