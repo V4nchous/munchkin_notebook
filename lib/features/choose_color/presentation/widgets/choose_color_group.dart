@@ -16,14 +16,14 @@ class ChooseColorGroup extends StatefulWidget {
 }
 
 class _ChooseColorGroupState extends State<ChooseColorGroup> {
-  List<Color> gridColors = [randomColor().withOpacity(1.0)];
+  List<Color> gridColors = [];
   static const _itemCount = 35;
   late Color _currentColor;
 
   @override
   void initState() {
     _currentColor = widget.controller.getCurrentColor;
-    for (var i = 0; i < 35; i++) {
+    for (var i = 0; i <= _itemCount; i++) {
       gridColors.add(randomColor().withOpacity(1.0));
     }
     widget.controller.setColorListener((color) {
