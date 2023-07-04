@@ -13,27 +13,25 @@ class ListOfPlayers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.listOfPlayersTitle),
-        body: const ListOfPlayersGroup(),
-        actions: Column(
-          children: [
-            MyPrimaryButton(
-              text: AppLocalizations.of(context)!.listOfPlayersAction1,
-              action: () {
-                AutoRouter.of(context).push(EnterName());
-              },
-            ),
-            const SizedBox(height: 20),
-            MySecondaryButton(
-              text: AppLocalizations.of(context)!.listOfPlayersAction2,
-              action: () {
-                AutoRouter.of(context).pop();
-              },
-            )
-          ],
-        ),
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.listOfPlayersTitle),
+      body: const ListOfPlayersGroup(),
+      actions: Column(
+        children: [
+          MyPrimaryButton(
+            text: AppLocalizations.of(context)!.listOfPlayersAction1,
+            action: () {
+              AutoRouter.of(context).push(EnterName());
+            },
+          ),
+          const SizedBox(height: 20),
+          MySecondaryButton(
+            text: AppLocalizations.of(context)!.listOfPlayersAction2,
+            action: () {
+              AutoRouter.of(context).pop();
+            },
+          )
+        ],
       ),
     );
   }

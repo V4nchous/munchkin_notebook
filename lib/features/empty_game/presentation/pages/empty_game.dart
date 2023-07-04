@@ -15,19 +15,17 @@ class EmptyGame extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenScale = getScreenScale(context);
 
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.emptyGameTitle),
-        body: const EmptyGameGroup(),
-        actions: InkWell(
-          onTap: () {
-            AutoRouter.of(context).push(const GameOptions());
-          },
-          child: Image.asset(
-            AppLocalizations.of(context)!.emptyGameActionImagePath,
-            height: 10 * screenScale,
-            width: 40 * screenScale,
-          ),
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.emptyGameTitle),
+      body: const EmptyGameGroup(),
+      actions: InkWell(
+        onTap: () {
+          AutoRouter.of(context).push(const GameOptions());
+        },
+        child: Image.asset(
+          AppLocalizations.of(context)!.emptyGameActionImagePath,
+          height: 10 * screenScale,
+          width: 40 * screenScale,
         ),
       ),
     );

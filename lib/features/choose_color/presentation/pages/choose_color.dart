@@ -29,47 +29,45 @@ class ChooseColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.chooseColorTitle),
-        body: Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: ChooseColorGroup(
-              controller: _colorController,
-            ),
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.chooseColorTitle),
+      body: Expanded(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: ChooseColorGroup(
+            controller: _colorController,
           ),
         ),
-        actions: Column(
-          children: [
-            const SizedBox(height: 40),
-            MyPrimaryButton(
-              text: AppLocalizations.of(context)!.chooseColorAction1,
-              action: () {
-                gameBloc.add(
-                  AddPlayer(
-                    Player(
-                      id: Random().nextInt(1000),
-                      name: playerName,
-                      level: 1,
-                      bonus: 0,
-                      gender: playerGender,
-                      color: _colorController.getCurrentColor,
-                    ),
+      ),
+      actions: Column(
+        children: [
+          const SizedBox(height: 40),
+          MyPrimaryButton(
+            text: AppLocalizations.of(context)!.chooseColorAction1,
+            action: () {
+              gameBloc.add(
+                AddPlayer(
+                  Player(
+                    id: Random().nextInt(1000),
+                    name: playerName,
+                    level: 1,
+                    bonus: 0,
+                    gender: playerGender,
+                    color: _colorController.getCurrentColor,
                   ),
-                );
-                AutoRouter.of(context).push(const EmptyGame());
-              },
-            ),
-            const SizedBox(height: 20),
-            MySecondaryButton(
-              text: AppLocalizations.of(context)!.chooseColorAction2,
-              action: () {
-                AutoRouter.of(context).pop();
-              },
-            )
-          ],
-        ),
+                ),
+              );
+              AutoRouter.of(context).push(const EmptyGame());
+            },
+          ),
+          const SizedBox(height: 20),
+          MySecondaryButton(
+            text: AppLocalizations.of(context)!.chooseColorAction2,
+            action: () {
+              AutoRouter.of(context).pop();
+            },
+          )
+        ],
       ),
     );
   }

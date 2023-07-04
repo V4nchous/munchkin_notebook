@@ -28,44 +28,42 @@ class _EnterCodeState extends State<EnterCode> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.enterCodeTitle),
-        body: Expanded(
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: EnterCodeGroup(
-                  controller: _codeValueController,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Expanded(
-                child: MyDescription(
-                    text: AppLocalizations.of(context)!.enterCodeDescription),
-              ),
-            ],
-          ),
-        ),
-        actions: Column(
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.enterCodeTitle),
+      body: Expanded(
+        child: Column(
           children: [
-            MyPrimaryButton(
-              text: AppLocalizations.of(context)!.enterCodeAction1,
-              action: () {
-                AutoRouter.of(context).push(EnterName());
-              },
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: EnterCodeGroup(
+                controller: _codeValueController,
+              ),
             ),
             const SizedBox(height: 20),
-            MySecondaryButton(
-              text: AppLocalizations.of(context)!.enterCodeAction2,
-              action: () {
-                AutoRouter.of(context).push(const CreateGame());
-              },
-            )
+            Expanded(
+              child: MyDescription(
+                  text: AppLocalizations.of(context)!.enterCodeDescription),
+            ),
           ],
         ),
+      ),
+      actions: Column(
+        children: [
+          MyPrimaryButton(
+            text: AppLocalizations.of(context)!.enterCodeAction1,
+            action: () {
+              AutoRouter.of(context).push(EnterName());
+            },
+          ),
+          const SizedBox(height: 20),
+          MySecondaryButton(
+            text: AppLocalizations.of(context)!.enterCodeAction2,
+            action: () {
+              AutoRouter.of(context).push(const CreateGame());
+            },
+          )
+        ],
       ),
     );
   }

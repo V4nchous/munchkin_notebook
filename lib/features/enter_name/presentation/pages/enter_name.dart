@@ -18,37 +18,34 @@ class EnterName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.enterNameTitle),
-        body: Expanded(
-          child: Column(
-            children: [
-              MyImage(path: AppLocalizations.of(context)!.enterNameImagePath),
-              const SizedBox(height: 40),
-              EnterNameWidget(controller: _playerNameController),
-            ],
-          ),
-        ),
-        actions: Column(
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.enterNameTitle),
+      body: Expanded(
+        child: Column(
           children: [
-            MyPrimaryButton(
-              text: AppLocalizations.of(context)!.enterNameAction1,
-              action: () {
-                AutoRouter.of(context)
-                    .push(ChooseGender(playerName: _playerNameController.text));
-              },
-            ),
-            const SizedBox(height: 20),
-            MySecondaryButton(
-              text: AppLocalizations.of(context)!.enterNameAction2,
-              action: () {
-                AutoRouter.of(context).push(const CreateGame());
-              },
-            )
+            MyImage(path: AppLocalizations.of(context)!.enterNameImagePath),
+            const SizedBox(height: 40),
+            EnterNameWidget(controller: _playerNameController),
           ],
         ),
+      ),
+      actions: Column(
+        children: [
+          MyPrimaryButton(
+            text: AppLocalizations.of(context)!.enterNameAction1,
+            action: () {
+              AutoRouter.of(context)
+                  .push(ChooseGender(playerName: _playerNameController.text));
+            },
+          ),
+          const SizedBox(height: 20),
+          MySecondaryButton(
+            text: AppLocalizations.of(context)!.enterNameAction2,
+            action: () {
+              AutoRouter.of(context).push(const CreateGame());
+            },
+          )
+        ],
       ),
     );
   }
