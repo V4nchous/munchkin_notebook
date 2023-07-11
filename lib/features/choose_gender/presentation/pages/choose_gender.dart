@@ -23,39 +23,36 @@ class ChooseGender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.chooseGenderTitle),
-        body: Expanded(
-          child: Column(
-            children: [
-              MyImage(
-                  path: AppLocalizations.of(context)!.chooseGenderImagePath),
-              const SizedBox(height: 40),
-              ChooseGenderGroup(
-                controller: _opacityController,
-              ),
-            ],
-          ),
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.chooseGenderTitle),
+      body: Expanded(
+        child: Column(
+          children: [
+            MyImage(path: AppLocalizations.of(context)!.chooseGenderImagePath),
+            const SizedBox(height: 40),
+            ChooseGenderGroup(
+              controller: _opacityController,
+            ),
+          ],
         ),
-        actions: Column(children: [
-          MyPrimaryButton(
-            text: AppLocalizations.of(context)!.chooseGenderAction1,
-            action: () {
-              AutoRouter.of(context).push(ChooseColor(
-                  playerName: playerName,
-                  playerGender: _opacityController.getCurrentGender));
-            },
-          ),
-          const SizedBox(height: 20),
-          MySecondaryButton(
-            text: AppLocalizations.of(context)!.chooseGenderAction2,
-            action: () {
-              AutoRouter.of(context).pop();
-            },
-          ),
-        ]),
       ),
+      actions: Column(children: [
+        MyPrimaryButton(
+          text: AppLocalizations.of(context)!.chooseGenderAction1,
+          action: () {
+            AutoRouter.of(context).push(ChooseColor(
+                playerName: playerName,
+                playerGender: _opacityController.getCurrentGender));
+          },
+        ),
+        const SizedBox(height: 20),
+        MySecondaryButton(
+          text: AppLocalizations.of(context)!.chooseGenderAction2,
+          action: () {
+            AutoRouter.of(context).pop();
+          },
+        ),
+      ]),
     );
   }
 }

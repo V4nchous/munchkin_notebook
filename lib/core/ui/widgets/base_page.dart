@@ -14,16 +14,19 @@ class MyBasePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyBackGround(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 40),
-        child: Column(
-          children: [
-            title,
-            const SizedBox(height: 20),
-            body,
-            actions,
-          ],
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: MyBackGround(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40),
+          child: Column(
+            children: [
+              title,
+              const SizedBox(height: 20),
+              body,
+              actions,
+            ],
+          ),
         ),
       ),
     );

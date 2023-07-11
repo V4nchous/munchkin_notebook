@@ -19,48 +19,46 @@ class MaxLevel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.maxLvlTitle),
-        body: Expanded(
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              LvlSelectionGroup(
-                controller: _maxLevelController,
-              ),
-              const SizedBox(height: 20),
-              Expanded(
-                child: MyDescription(
-                    text: AppLocalizations.of(context)!.maxLvlDescription),
-              ),
-            ],
-          ),
-        ),
-        actions: Column(
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.maxLvlTitle),
+      body: Expanded(
+        child: Column(
           children: [
-            MyPrimaryButton(
-              text: AppLocalizations.of(context)!.maxLvlAction1,
-              action: () {
-                if (gameBloc.state is GameCreated) {
-                  gameBloc.add(
-                      ChangeGameMaxLevel(_maxLevelController.getCurrentLevel));
-                  AutoRouter.of(context).pop();
-                } else {
-                  AutoRouter.of(context).navigate(SelfCounting(
-                      maxLevel: _maxLevelController.getCurrentLevel));
-                }
-              },
+            const SizedBox(height: 20),
+            LvlSelectionGroup(
+              controller: _maxLevelController,
             ),
             const SizedBox(height: 20),
-            MySecondaryButton(
-              text: AppLocalizations.of(context)!.maxLvlAction2,
-              action: () {
-                AutoRouter.of(context).pop();
-              },
-            )
+            Expanded(
+              child: MyDescription(
+                  text: AppLocalizations.of(context)!.maxLvlDescription),
+            ),
           ],
         ),
+      ),
+      actions: Column(
+        children: [
+          MyPrimaryButton(
+            text: AppLocalizations.of(context)!.maxLvlAction1,
+            action: () {
+              if (gameBloc.state is GameCreated) {
+                gameBloc.add(
+                    ChangeGameMaxLevel(_maxLevelController.getCurrentLevel));
+                AutoRouter.of(context).pop();
+              } else {
+                AutoRouter.of(context).navigate(SelfCounting(
+                    maxLevel: _maxLevelController.getCurrentLevel));
+              }
+            },
+          ),
+          const SizedBox(height: 20),
+          MySecondaryButton(
+            text: AppLocalizations.of(context)!.maxLvlAction2,
+            action: () {
+              AutoRouter.of(context).pop();
+            },
+          )
+        ],
       ),
     );
   }

@@ -12,16 +12,14 @@ class GameOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.gameOptionsTitle),
-        body: const GameOptionsGroupWidget(),
-        actions: MySecondaryButton(
-          text: AppLocalizations.of(context)!.gameOptionsAction1,
-          action: () {
-            AutoRouter.of(context).pop();
-          },
-        ),
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.gameOptionsTitle),
+      body: const GameOptionsGroupWidget(),
+      actions: MySecondaryButton(
+        text: AppLocalizations.of(context)!.gameOptionsAction1,
+        action: () {
+          AutoRouter.of(context).pop();
+        },
       ),
     );
   }

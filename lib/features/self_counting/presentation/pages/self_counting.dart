@@ -19,50 +19,46 @@ class SelfCounting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyBasePage(
-        title: MyTitle(text: AppLocalizations.of(context)!.selfCountingTitle),
-        body: Expanded(
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              MyImage(
-                  path: AppLocalizations.of(context)!.selfCountingImagePath),
-              const SizedBox(height: 20),
-              Expanded(
-                child: MyDescription(
-                    text:
-                        AppLocalizations.of(context)!.selfCountingDescription),
-              ),
-            ],
-          ),
-        ),
-        actions: Column(
+    return MyBasePage(
+      title: MyTitle(text: AppLocalizations.of(context)!.selfCountingTitle),
+      body: Expanded(
+        child: Column(
           children: [
-            MyPrimaryButton(
-              text: AppLocalizations.of(context)!.selfCountingAction1,
-              action: () {
-                gameBloc.add(StartGame(maxLevel, true));
-                AutoRouter.of(context).replaceAll([EnterName()]);
-              },
-            ),
             const SizedBox(height: 20),
-            MyPrimaryButton(
-              text: AppLocalizations.of(context)!.selfCountingAction2,
-              action: () {
-                gameBloc.add(StartGame(maxLevel, false));
-                AutoRouter.of(context).replaceAll([EnterName()]);
-              },
-            ),
+            MyImage(path: AppLocalizations.of(context)!.selfCountingImagePath),
             const SizedBox(height: 20),
-            MySecondaryButton(
-              text: AppLocalizations.of(context)!.selfCountingAction3,
-              action: () {
-                AutoRouter.of(context).pop();
-              },
+            Expanded(
+              child: MyDescription(
+                  text: AppLocalizations.of(context)!.selfCountingDescription),
             ),
           ],
         ),
+      ),
+      actions: Column(
+        children: [
+          MyPrimaryButton(
+            text: AppLocalizations.of(context)!.selfCountingAction1,
+            action: () {
+              gameBloc.add(StartGame(maxLevel, true));
+              AutoRouter.of(context).replaceAll([EnterName()]);
+            },
+          ),
+          const SizedBox(height: 20),
+          MyPrimaryButton(
+            text: AppLocalizations.of(context)!.selfCountingAction2,
+            action: () {
+              gameBloc.add(StartGame(maxLevel, false));
+              AutoRouter.of(context).replaceAll([EnterName()]);
+            },
+          ),
+          const SizedBox(height: 20),
+          MySecondaryButton(
+            text: AppLocalizations.of(context)!.selfCountingAction3,
+            action: () {
+              AutoRouter.of(context).pop();
+            },
+          ),
+        ],
       ),
     );
   }
