@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:munchkin_notebook/core/ui/constants/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EnterNameWidget extends StatelessWidget {
   const EnterNameWidget({
@@ -25,11 +26,11 @@ class EnterNameWidget extends StatelessWidget {
           fontFamily: 'academy',
           letterSpacing: 2,
         ),
-        decoration: const InputDecoration(
-          hintText: 'Имя',
-          enabledBorder: UnderlineInputBorder(
+        decoration: InputDecoration(
+          hintText: AppLocalizations.of(context)!.enterNameHint,
+          enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.accentColor, width: 4.0)),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.accentColor, width: 4.0)),
         ),
       ),
