@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:munchkin_notebook/features/game/presentation/bloc/game_bloc.dart';
+import 'package:munchkin_notebook/l10n/l10n.dart';
 import 'package:munchkin_notebook/navigation/router.gr.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'core/ui/app_theme.dart';
@@ -24,9 +25,7 @@ class App extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en'),
-      ],
+      supportedLocales: L10n.all,
       debugShowCheckedModeBanner: false,
     );
   }
