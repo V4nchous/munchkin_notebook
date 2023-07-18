@@ -21,7 +21,6 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
 
   @override
   void initState() {
-    ChooseColorController();
     _currentColor = widget.controller.getCurrentColor;
     widget.controller.setColorListener((color) {
       setState(() {
