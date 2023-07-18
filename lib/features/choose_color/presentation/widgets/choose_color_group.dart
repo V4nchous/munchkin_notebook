@@ -16,16 +16,12 @@ class ChooseColorGroup extends StatefulWidget {
 }
 
 class _ChooseColorGroupState extends State<ChooseColorGroup> {
-  List<Color> gridColors = [];
   static const _itemCount = 35;
   late Color _currentColor;
 
   @override
   void initState() {
     _currentColor = widget.controller.getCurrentColor;
-    for (var i = 0; i <= _itemCount; i++) {
-      gridColors.add(randomColor().withOpacity(1.0));
-    }
     widget.controller.setColorListener((color) {
       setState(() {
         _currentColor = color;
@@ -47,13 +43,14 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            widget.controller.setSelectedColor(gridColors[index]);
+            widget.controller
+                .setSelectedColor(widget.controller.gridColors[index]);
           },
           child: Container(
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: gridColors[index],
+              color: widget.controller.gridColors[index],
               border: Border.all(
                 color: AppColors.accentColor,
               ),
@@ -61,7 +58,7 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
             ),
             child: Stack(
               children: [
-                if (gridColors[index] == _currentColor)
+                if (widget.controller.gridColors[index] == _currentColor)
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Image.asset(AppLocalizations.of(context)!
@@ -76,11 +73,19 @@ class _ChooseColorGroupState extends State<ChooseColorGroup> {
   }
 }
 
-Color randomColor() => Color((math.Random().nextDouble() * 0xFFFFFF).toInt());
-
 class ChooseColorController {
+  List<Color> gridColors = [];
   Color _selectedColor = Colors.black;
   Function(Color)? _onColorSelected;
+  static const _itemCount = 35;
+
+  ChooseColorController() {
+    for (var i = 0; i <= _itemCount; i++) {
+      gridColors.add(randomColor().withOpacity(1.0));
+    }
+  }
+
+  Color randomColor() => Color((math.Random().nextDouble() * 0xFFFFFF).toInt());
 
   Color get getCurrentColor => _selectedColor;
 
