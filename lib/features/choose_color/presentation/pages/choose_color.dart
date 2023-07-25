@@ -57,7 +57,7 @@ class ChooseColor extends StatelessWidget {
                   ),
                 ),
               );
-              AutoRouter.of(context).push(const EmptyGame());
+              AutoRouter.of(context).replaceAll([const EmptyGame()]);
             },
           ),
           const SizedBox(height: 20),
