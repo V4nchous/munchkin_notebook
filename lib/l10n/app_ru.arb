@@ -48,9 +48,36 @@
     "gameOptionsTitle": "Параметры игры",
     "gameOptionsAction1": "Вернуться  к игре",
     "gameOptionsCodeOptionImagePath": "assets/images/game_options_code_options.png",
-    "gameOptionsCodeUnit": "Код игры: ",
-    "gameOptionsLevelUnit": "Максимальный уровень: ",
-    "gameOptionsPlayersUnit": "Игроков: ",
+    "gameOptionsCodeUnit": "Код игры: {gameCode}",
+    "@gameOptionsCodeUnit": {
+        "description": "Show game code.",
+        "placeholders": {
+            "gameCode": {
+                "type": "int",
+                "example": "12345"
+            }
+        }
+    },
+    "gameOptionsLevelUnit": "Максимальный уровень: {maxLevel}",
+    "@gameOptionsLevelUnit": {
+        "description": "Show game max level.",
+        "placeholders": {
+            "maxLevel": {
+                "type": "int",
+                "example": "7"
+            }
+        }
+    },
+    "gameOptionsPlayersUnit": "Игроков: {amountOfPlayers}",
+    "@gameOptionsPlayersUnit": {
+        "description": "Show amount of Players maxLevel.",
+        "placeholders": {
+            "amountOfPlayers": {
+                "type": "int",
+                "example": "3"
+            }
+        }
+    },
     "gameOptionsIsGMUnit": "Я буду мастером игры",
     "gameOptionsNotGMUnit": "Каждый считает очки сам",
     "notCreatedGame": "Game is not created yet",

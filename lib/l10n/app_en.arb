@@ -48,9 +48,36 @@
     "gameOptionsTitle": "Game options",
     "gameOptionsAction1": "Back to game",
     "gameOptionsCodeOptionImagePath": "assets/images/game_options_code_options.png",
-    "gameOptionsCodeUnit": "Game code: ",
-    "gameOptionsLevelUnit": "Max level: ",
-    "gameOptionsPlayersUnit": "Players: ",
+    "gameOptionsCodeUnit": "Game code: {gameCode}",
+    "@gameOptionsCodeUnit": {
+        "description": "Show game code.",
+        "placeholders": {
+            "gameCode": {
+                "type": "int",
+                "example": "12345"
+            }
+        }
+    },
+    "gameOptionsLevelUnit": "Max level: {maxLevel}",
+    "@gameOptionsLevelUnit": {
+        "description": "Show game max level.",
+        "placeholders": {
+            "maxLevel": {
+                "type": "int",
+                "example": "7"
+            }
+        }
+    },
+    "gameOptionsPlayersUnit": "Players: {amountOfPlayers}",
+    "@gameOptionsPlayersUnit": {
+        "description": "Show amount of Players maxLevel.",
+        "placeholders": {
+            "amountOfPlayers": {
+                "type": "int",
+                "example": "3"
+            }
+        }
+    },
     "gameOptionsIsGMUnit": "I want to be GM",
     "gameOptionsNotGMUnit": "Everyone counts themselves",
     "notCreatedGame": "Game is not created yet",
