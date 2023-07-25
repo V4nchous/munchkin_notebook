@@ -25,22 +25,20 @@ class GameOptionsGroupWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     GameCodeOption(
-                        text:
-                            AppLocalizations.of(context)!.gameOptionsCodeUnit +
-                                state.game.gameCode.toString()),
+                        text: AppLocalizations.of(context)!
+                            .gameOptionsCodeUnit(state.game.gameCode)),
                     const SizedBox(height: 20),
                     Option(
-                      text: AppLocalizations.of(context)!.gameOptionsLevelUnit +
-                          state.game.maxLevel.toString(),
+                      text: AppLocalizations.of(context)!
+                          .gameOptionsLevelUnit(state.game.maxLevel),
                       action: () {
                         AutoRouter.of(context).push(MaxLevel());
                       },
                     ),
                     const SizedBox(height: 20),
                     Option(
-                      text:
-                          AppLocalizations.of(context)!.gameOptionsPlayersUnit +
-                              state.game.players.length.toString(),
+                      text: AppLocalizations.of(context)!
+                          .gameOptionsPlayersUnit(state.game.players.length),
                       action: () {
                         AutoRouter.of(context).push(const ListOfPlayers());
                       },
